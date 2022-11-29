@@ -1,0 +1,23 @@
+###############################################################################
+# Files to not be included in Git version control
+#
+# @see https://stackoverflow.com/questions/16736856/what-should-be-in-my-gitignore-for-an-android-studio-project
+###############################################################################
+
+.gradle
+/local.properties
+*.iml
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+*~
+*.swp

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--************************************************************************************************
+*
+* Chapter 01 Main Activity Layout
+*
+*   This activity displays a text box and two buttons centered on the screen.
+*
+* Contents:
+*
+*   A Vertical LinearLayout is used as a the top-level component. Its contents are centered using
+*   the android:gravity attribute.
+*
+*   It contains a TextView and a Horizontal LinearLayout that holds two Buttons.
+*
+*   Padding is applied to the TextView to give space between it and its surroundings and its height
+*   and width wrap its contents. A string resource is provided to give it default text.
+*
+*   The Horizontal LinearLayout height and width is set to wrap contents. This ViewGroup wraps two
+*   Button elements.
+*
+*   The Buttons each have an ID associated with them. Their height and width wrap their
+*   contents. A string resource provides their text.
+*
+*************************************************************************************************-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:id="@+id/root"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:text="@string/question_text" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/true_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/true_button" />
+
+        <Button
+            android:id="@+id/false_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/false_button" />
+    </LinearLayout>
+</LinearLayout>
