@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
 /***************************************************************************************************
  * Get a reference to the two Button views
  **************************************************************************************************/
-        trueButton  = findViewById(R.id.true_button);
-        falseButton = findViewById(R.id.false_button);
+        trueButton  = findViewById(R.id.true_button)
+        falseButton = findViewById(R.id.false_button)
 /***************************************************************************************************
  * Get a reference to the two Button views
  **************************************************************************************************/
