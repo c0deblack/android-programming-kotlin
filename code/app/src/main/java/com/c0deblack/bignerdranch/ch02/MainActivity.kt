@@ -58,10 +58,10 @@ class MainActivity : AppCompatActivity() {
  * reached the end of the Questions list.
  **************************************************************************************************/
         binding.trueButton.setOnClickListener {
-            checkAnswer(true);
+            checkAnswer(true)
         }
         binding.falseButton.setOnClickListener {
-            checkAnswer(false);
+            checkAnswer(false)
         }
         binding.nextButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size

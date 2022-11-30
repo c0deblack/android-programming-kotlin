@@ -16,7 +16,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - shorted syntax used with the button's `setOnClickListener()` method
     - the single abstract method is implemented and passed to the `setOnClickLister()`
 
-### Andorid (Kotlin) 
+### Andorid 
 
 - [Keyboard Shortcuts](https://developer.android.com/studio/intro/keyboard-shortcuts)
     - **ALT+Enter**: project quickfix
@@ -29,9 +29,9 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - accessed root view using **android.R.id.content**
 - [String Resources](https://developer.android.com/guide/topics/resources/string-resource)
 
-### Challenge 1: Switching Your Toast for a Snackbar
+### Challenge #1: Switching Your Toast for a Snackbar
 
-## Chapter #2: 
+## Chapter 2: Interactive User Interfaces
 
 ### Kotlin
 
@@ -47,7 +47,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - See also: [Kotlin Built-in Collection Operations](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/)
 
 
-### Android (Kotlin)
+### Android 
 
 - [@StringRes](https://developer.android.com/reference/androidx/annotation/StringRes?hl=en) 
     - marked a property as requiring a string id resource
@@ -85,7 +85,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Formatting String Resources](https://developer.android.com/guide/topics/resources/string-resource.html#formatting-strings)
 
 
-### Android (Kotlin)
+### Android 
 
 - [Activity Lifecyle](https://developer.android.com/guide/components/activities/activity-lifecycle)
     - overrided lifecyle methods
@@ -105,7 +105,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 ### Challenge #4: Preventing Repeat Answers
 ### Challenge #5: Graded Quiz
 
-## Chapter 4: Android Programming - Big Nerd Ranch Guide
+## Chapter 4: Persisting UI State
 
 ### Kotin 
 
@@ -114,7 +114,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Lazy Initialized Properties](https://kotlinlang.org/docs/properties.html#late-initialized-properties-and-variables)
 - [Computed Properties / Getters & Setters](https://kotlinlang.org/docs/properties.html#getters-and-setters)
 
-### Andorid (Kotlin) 
+### Andorid 
 
 - [Build Dependencies](https://developer.android.com/studio/build/dependencies)
 - [ViewModel Overview](https://developer.android.com/topic/libraries/architecture/viewmodel)
@@ -134,3 +134,39 @@ This file outlines some of the Kotlin and Android features introduced in each ch
         - saved state is also removed during these events
 - [Android Jetpack](https://developer.android.com/jetpack/)
     - various androidx libraries enabling the latest android features
+
+
+## Chapter 5: Debugging Android
+
+### Kotlin
+
+- [Kotlin Exceptions Overview](https://kotlinlang.org/docs/exceptions.html#exception-classes)
+
+### Android
+
+- [Debug Your App](https://developer.android.com/studio/debug)
+    - [breakpoints](https://developer.android.com/studio/debug#breakPoints)
+        - [conditional breakpoints](https://developer.android.com/codelabs/basic-android-kotlin-training-debugging-with-breakpoints#3)
+    - [view variables](https://developer.android.com/studio/debug#variablesAndWatches)
+    - set conditional breakpoint
+    - executed kotlin computed properties with Evaluate Expression in debug mode
+- [Write and View Logs](https://developer.android.com/studio/debug/am-logcat)
+    - device stores latest lines written to log in case of crash
+- [Stack Tracing](https://developer.android.com/studio/debug/stacktraces)
+    - logged stack traces while app was running
+- [Lint Checks](https://developer.android.com/studio/write/lint#manuallyRunInspections)
+    - identified and resolved an internationalization issue
+    - interface provides auto correction of many problems
+- Resolving Issues
+    - double check XML resources for syntax errors
+    - select Build > Clean Croject
+    - select File > Sync Project With Gradle Files
+    - select Code > Inspect Code for run Lint Checks
+    - select File > Invalidate Caches
+- [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector)
+    - selected Tools > Layout Inspector
+    - inspected a live view of the app in android studio
+
+### Challenge #6: Using conditional Breakpoints
+### Challenge #7: Exploring the Layout Inspector
+### Challenge #8: Exploring the Profiler
