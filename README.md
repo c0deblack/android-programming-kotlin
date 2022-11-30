@@ -4,6 +4,15 @@ Chapter code and solutions to [Android Programming: The Big Nerd Ranch Guide (5t
 
 This file outlines some of the Kotlin and Android features introduced in each chapter. Links to official documentation are provided. 
 
+
+## Table of Contents
+
+1) [Your First Android Application](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-1-your-first-android-application)
+2) [Interactive User Interfaces](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-2-interactive-user-interfaces)
+3) [The Activity Lifecycle](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-3-the-activity-lifecycle)
+4) [Persisting UI State](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-4-persisting-ui-state)
+5) [Debugging Android](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-5-debugging-android)
+
 ## Chapter #1: Your First Android Application
 
 ### Kotlin 
@@ -166,6 +175,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector)
     - selected Tools > Layout Inspector
     - inspected a live view of the app in android studio
+- [The Android Profiler](https://developer.android.com/studio/profile/android-profiler)
 
 ### Challenge #6: Using conditional Breakpoints
 ### Challenge #7: Exploring the Layout Inspector
