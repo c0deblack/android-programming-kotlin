@@ -16,6 +16,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 ## Chapter #1: Your First Android Application
 
 ### Kotlin 
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
 - [Basic Syntax](https://kotlinlang.org/docs/basic-syntax.html)
     - all of the basics to get started
@@ -41,6 +42,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 ### Challenge #1: Switching Your Toast for a Snackbar
 
 ## Chapter 2: Interactive User Interfaces
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
 ### Kotlin
 
@@ -82,6 +84,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 ### Challenge #3: Add a Previous Button
 
 ## Chapter 3: The Activity Lifecycle
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
 ### Kotlin
 
@@ -115,6 +118,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 ### Challenge #5: Graded Quiz
 
 ## Chapter 4: Persisting UI State
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
 ### Kotin 
 
@@ -146,6 +150,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 
 ## Chapter 5: Debugging Android
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
 ### Kotlin
 
