@@ -12,6 +12,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 3) [The Activity Lifecycle](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-3-the-activity-lifecycle)
 4) [Persisting UI State](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-4-persisting-ui-state)
 5) [Debugging Android](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-5-debugging-android)
+6) [Testing](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-6-testing)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
@@ -187,3 +188,34 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 ### Challenge #6: Using conditional Breakpoints
 ### Challenge #7: Exploring the Layout Inspector
 ### Challenge #8: Exploring the Profiler
+
+## Chapter 6: Testing
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
+
+### Kotlin
+
+- [Map](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/)
+    - used to pass key/value pair to the savedStateHandle constructor in the JVM test
+
+### Android
+
+- [Testing Overview](https://developer.android.com/training/testing)
+    - [Fundamentals](https://developer.android.com/training/testing/fundamentals)
+    - [What to Test](https://developer.android.com/training/testing/fundamentals/what-to-test)
+    - [test doubles](https://developer.android.com/training/testing/fundamentals/test-doubles): provides dependencies to subject under test
+- [JVM Testing](https://developer.android.com/training/testing/local-tests) (Local testing)
+    - ran tests within Android Studio
+    - imported `R` in order to test string resource values
+    - [create a local test](https://developer.android.com/training/testing/local-tests#test-class)
+- [Instrumentation Testing](https://developer.android.com/training/testing/instrumented-tests)
+    - ran tests on a physical device
+    - [create an instrumented test](https://developer.android.com/training/testing/instrumented-tests#create-instrumented)
+- [ActivityScenario](https://developer.android.com/reference/androidx/test/core/app/ActivityScenario)
+    - [recreate()](https://developer.android.com/reference/androidx/test/core/app/ActivityScenario#recreate())
+        - used recreate to similate configuration change
+- [Espresso Overview](https://developer.android.com/training/testing/espresso)
+    - performed actions during unit test and tested result
+    - [basics](https://developer.android.com/training/testing/espresso/additional-resources#samples)
+    - [additional resources & samples](https://developer.android.com/training/testing/espresso/additional-resources#samples)
+
+### Challenge #9: Asserting Yourself

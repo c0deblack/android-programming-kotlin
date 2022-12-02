@@ -26,7 +26,6 @@
                 android:value="" />
         </activity>
 
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch01_challenge1.MainActivity"
             android:exported="true">
@@ -35,7 +34,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
 
         <activity
             android:name="com.c0deblack.bignerdranch.ch02.MainActivity"
@@ -46,7 +44,6 @@
                 android:value="" />
         </activity>
 
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch02_challenge2.MainActivity"
             android:exported="true">
@@ -55,8 +52,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
 
         <activity
             android:name="com.c0deblack.bignerdranch.ch02_challenge3.MainActivity"
@@ -67,7 +62,6 @@
                 android:value="" />
         </activity>
 
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch03.MainActivity"
             android:exported="true">
@@ -76,8 +70,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
 
         <activity
             android:name="com.c0deblack.bignerdranch.ch03_challenge4.MainActivity"
@@ -88,7 +80,6 @@
                 android:value="" />
         </activity>
 
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch03_challenge5.MainActivity"
             android:exported="true">
@@ -97,7 +88,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
 
         <activity
             android:name="com.c0deblack.bignerdranch.ch04.MainActivity"
@@ -108,9 +98,26 @@
                 android:value="" />
         </activity>
 
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch05.MainActivity"
+            android:exported="true">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name="com.c0deblack.bignerdranch.ch06.MainActivity"
+            android:exported="true">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name="com.c0deblack.bignerdranch.ch06_challenge9.MainActivity"
             android:exported="true">
 
             <meta-data
