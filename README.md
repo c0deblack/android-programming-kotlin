@@ -12,6 +12,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 3) [The Activity Lifecycle](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-3-the-activity-lifecycle)
 4) [Persisting UI State](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-4-persisting-ui-state)
 5) [Debugging Android](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-5-debugging-android)
+6) [Testing](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-6-testing)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
