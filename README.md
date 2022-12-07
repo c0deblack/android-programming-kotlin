@@ -13,6 +13,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 4) [Persisting UI State](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-4-persisting-ui-state)
 5) [Debugging Android](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-5-debugging-android)
 6) [Testing](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-6-testing)
+7) [Your Second Activity](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-7-your-second-activity)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
@@ -234,15 +235,15 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Scope Functions](https://kotlinlang.org/docs/scope-functions.html)
     - [apply() scope function](https://kotlinlang.org/docs/scope-functions.html#apply)
         -  used to configure the new intent in the CheatActivity `newIntent()` function
-- [Qualified this (this@)](https://kotlinlang.org/docs/this-expressions.html#qualified-this)
-    - used to pass a reference to the MainActivity to CheatActivity's `newIntent()` function
+- [Qualified this (this@ClassName)](https://kotlinlang.org/docs/this-expressions.html#qualified-this)
+    - used to pass a reference of the MainActivity in CheatActivity's `newIntent()` function
 - [When Expression](https://kotlinlang.org/docs/control-flow.html#when-expression)
     - used to check the Boolean put into the intent used to launch CheatActivity
 - [Lambdas](https://kotlinlang.org/docs/lambdas.html)
     - [trailing lambdas](https://kotlinlang.org/docs/lambdas.html#passing-trailing-lambdas)
         - passed as a callback to the `registerForActivityResult()` function
 - [Safe Calls (?.)](https://kotlinlang.org/docs/null-safety.html#safe-calls)
-    - used to access the data of the result returned by the cheatLauncher
+    - used to access the data of the result returned by the cheatLauncher: `result.data?`
 
 ### Android
 
