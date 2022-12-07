@@ -28,6 +28,9 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Single Abstract Method](https://kotlinlang.org/docs/fun-interfaces.html)
     - shorted syntax used with the button's `setOnClickListener()` method
     - the single abstract method is implemented and passed to the `setOnClickLister()`
+- [KDoc](https://kotlinlang.org/docs/kotlin-doc.html#kdoc-syntax)
+    - used to document Kotlin code
+
 
 ### Andorid 
 
@@ -97,8 +100,6 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - used in the challenges
     - [if statement](https://kotlinlang.org/docs/control-flow.html#if-expression)
     - [for loops](https://kotlinlang.org/docs/control-flow.html#for-loops)
-- [Formatting String Resources](https://developer.android.com/guide/topics/resources/string-resource.html#formatting-strings)
-
 
 ### Android 
 
@@ -115,6 +116,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Logcat Utility](https://developer.android.com/studio/debug/am-logcat)
     - created a log filter
     - extra: [commandline utility](https://developer.android.com/studio/command-line/logcat)
+- [Formatting String Resources](https://developer.android.com/guide/topics/resources/string-resource.html#formatting-strings)
 - [Activity.finish()](https://developer.android.com/reference/android/app/Activity#finish())
 
 ### Challenge #4: Preventing Repeat Answers
@@ -219,3 +221,55 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - [additional resources & samples](https://developer.android.com/training/testing/espresso/additional-resources#samples)
 
 ### Challenge #9: Asserting Yourself
+
+
+## Chapter 7: Your Second Activity
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
+
+### Kotlin
+
+- [Companion Objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
+    - used to access the `newIntent()` method directly from the CheatActivity class
+    - [object expressions](https://kotlinlang.org/docs/object-declarations.html)
+- [Scope Functions](https://kotlinlang.org/docs/scope-functions.html)
+    - [apply() scope function](https://kotlinlang.org/docs/scope-functions.html#apply)
+        -  used to configure the new intent in the CheatActivity `newIntent()` function
+- [Qualified this (this@)](https://kotlinlang.org/docs/this-expressions.html#qualified-this)
+    - used to pass a reference to the MainActivity to CheatActivity's `newIntent()` function
+- [When Expression](https://kotlinlang.org/docs/control-flow.html#when-expression)
+    - used to check the Boolean put into the intent used to launch CheatActivity
+- [Lambdas](https://kotlinlang.org/docs/lambdas.html)
+    - [trailing lambdas](https://kotlinlang.org/docs/lambdas.html#passing-trailing-lambdas)
+        - passed as a callback to the `registerForActivityResult()` function
+- [Safe Calls (?.)](https://kotlinlang.org/docs/null-safety.html#safe-calls)
+    - used to access the data of the result returned by the cheatLauncher
+
+### Android
+
+- [Activity Overview](https://developer.android.com/guide/components/activities/intro-activities)
+    - [declare activity](https://developer.android.com/guide/components/activities/intro-activities#da)
+    - [declare intent](https://developer.android.com/guide/components/activities/intro-activities#dif)
+- [Intents Overview](https://developer.android.com/guide/components/intents-filters)
+    - [explicit intent](https://developer.android.com/guide/components/intents-filters#ExampleExplicit)
+        - used to specifically choose the CheatActivity as the activity to launch
+    - [implicit intent](https://developer.android.com/guide/components/intents-filters#ExampleSend)
+    - [common intents](https://developer.android.com/guide/components/intents-common)
+    - [intent api reference](https://developer.android.com/reference/android/content/Intent)
+- [Android Manifest Overview](https://developer.android.com/guide/topics/manifest/manifest-intro)
+    - [activity](https://developer.android.com/guide/topics/manifest/activity-element)
+        - used to declare the MainActivity and CheatActivity as being part of the app
+    - [intent-filter](https://developer.android.com/guide/topics/manifest/intent-filter-element)
+        - used to declare MainActivity as the first activity in the app
+- [Get Result From Activity](https://developer.android.com/training/basics/intents/result)
+    - [launch for result](https://developer.android.com/training/basics/intents/result#launch)
+        - used to start a new activity that returns data after it finishes
+    - [getBooleanExtra](https://developer.android.com/reference/android/content/Intent#getBooleanExtra(java.lang.String,%20boolean))
+        - used to get the data passed to CheatActivity when MainActivity launched it
+    - [recieve result](https://developer.android.com/training/basics/intents/result#separate)
+        - used to capture data from an activity started from another activity
+    - API References
+        - [startActivity()](https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent))
+        - [startActivityForResult()](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent,%20int))
+- [The Back Stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack)
+    - demonstrated the differences between the first activity and started activities on the backstack
+
