@@ -261,7 +261,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
         - used to declare the MainActivity and CheatActivity as being part of the app
     - [intent-filter](https://developer.android.com/guide/topics/manifest/intent-filter-element)
         - used to declare MainActivity as the first activity in the app
-- [Get Result From Activity](https://developer.android.com/training/basics/intents/result)
+- [Get Result From Activity Overview](https://developer.android.com/training/basics/intents/result)
     - [launch for result](https://developer.android.com/training/basics/intents/result#launch)
         - used to start a new activity that returns data after it finishes
     - [getBooleanExtra](https://developer.android.com/reference/android/content/Intent#getBooleanExtra(java.lang.String,%20boolean))
