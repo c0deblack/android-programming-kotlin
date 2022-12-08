@@ -121,7 +121,14 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Activity.finish()](https://developer.android.com/reference/android/app/Activity#finish())
 
 ### Challenge #4: Preventing Repeat Answers
+
+- Added an `isAnswered` Boolean to the `Question` class
+- Added functions to `QuizViewModel` to determine the answer state of the current quesiton
+- Button state loss on configuration change is fixed in Chapter 7, Challenge 10
+
 ### Challenge #5: Graded Quiz
+
+- Modified the `checkAnswer()` function to check if all the questions are answered
 
 ## Chapter 4: Persisting UI State
 [go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
@@ -223,6 +230,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 ### Challenge #9: Asserting Yourself
 
+- Asserted that `QuizViewModel` showed the correct question test after the `moveToNext()` operation
 
 ## Chapter 7: Your Second Activity
 [go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
@@ -274,3 +282,10 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [The Back Stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack)
     - demonstrated the differences between the first activity and started activities on the backstack
 
+### Challenge #10: Closing Loopholes for Cheaters
+
+- Added a `cheated` Boolean variable to each `Question` object
+- Modified the `Question` class to inherit from `java.io.Serializable`
+- Added the `questionBank` in the `QuizViewModel` to the MainActivity's savedState
+- Included the cheat status along with the answer in the intent used to launch `CheatActivity`
+- Restored UI state of the CheatActivity using values obtained from MainActivity

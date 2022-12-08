@@ -140,7 +140,8 @@ class MainActivity : AppCompatActivity() {
  * Set the text in the text view when the view is created.
  **************************************************************************************************/
         this.updateQuestions()
-    }
+        this.setAnswerButtonState()
+}
 /*################################################################################################*/
 // END onCreate(savedInstanceState: Bundle?)
 /*################################################################################################*/

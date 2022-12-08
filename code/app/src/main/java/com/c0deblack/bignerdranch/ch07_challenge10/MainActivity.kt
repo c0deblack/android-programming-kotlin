@@ -134,7 +134,6 @@ class MainActivity : AppCompatActivity() {
             val intent = CheatActivity.newIntent(
                 this@MainActivity,
                 answerIsTrue,
-                quizViewModel.currentIndex,
                 quizViewModel.isCheater
             )
             //startActivity(intent)

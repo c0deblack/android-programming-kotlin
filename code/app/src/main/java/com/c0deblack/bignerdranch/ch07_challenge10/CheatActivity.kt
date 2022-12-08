@@ -6,12 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.c0deblack.bignerdranch.androidprogramming.R
 import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch07LayoutChallenge10ActivityCheatBinding
-import kotlin.properties.Delegates
 
-/***************************************************************************************************
- * Log Tag
- **************************************************************************************************/
-private const val TAG = "CheatActivity"
 /***************************************************************************************************
  * Key Used For Launcher Intent
  * Used as a key in the intent's kay/value mappings.
@@ -52,12 +47,6 @@ class CheatActivity : AppCompatActivity() {
  * Keep track of cheat status across the MainActivity and CheatActivity.
  **************************************************************************************************/
 private var isCheater = false
-/***************************************************************************************************
- * Question Number
- * Used to keep track of the cheat status for a given question. Helps the CheatActivity remember if
- * the user cheated after configuration change or process death.
- **************************************************************************************************/
-    private var questionNumber by Delegates.notNull<Int>()
 //=*************************************************************************************************
 //= START onCreate
 //=*************************************************************************************************
@@ -68,7 +57,6 @@ private var isCheater = false
 
     // --- return false if the EXTRA_ANSWER_IS_TRUE key isn't set
         answerIsTrue   = intent.getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false)
-        questionNumber = intent.getIntExtra(EXTRA_QUESTION_NUMBER, 0)
         isCheater      = intent.getBooleanExtra(EXTRA_IS_CHEATER, false)
 
         binding.showAnswerButton.setOnClickListener {
@@ -94,12 +82,10 @@ private var isCheater = false
         fun newIntent(
             packageContext: Context,
             answerIsTrue: Boolean,
-            questionNumber: Int,
             isCheater: Boolean
         ): Intent {
             return Intent(packageContext, CheatActivity::class.java).apply {
                 putExtra(EXTRA_ANSWER_IS_TRUE, answerIsTrue)
-                putExtra(EXTRA_QUESTION_NUMBER, questionNumber)
                 putExtra(EXTRA_IS_CHEATER, isCheater )
             }
         }
@@ -113,7 +99,7 @@ private var isCheater = false
         val data = Intent().apply {
             putExtra(EXTRA_ANSWER_SHOWN, isAnswerShown)
         }
-        setResult(AppCompatActivity.RESULT_OK, data)
+        setResult(RESULT_OK, data)
     }
 /***************************************************************************************************
  * Show Answer
