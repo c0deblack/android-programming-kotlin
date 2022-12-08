@@ -13,6 +13,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 4) [Persisting UI State](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-4-persisting-ui-state)
 5) [Debugging Android](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-5-debugging-android)
 6) [Testing](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-6-testing)
+7) [Your Second Activity](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-7-your-second-activity)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
@@ -28,6 +29,9 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Single Abstract Method](https://kotlinlang.org/docs/fun-interfaces.html)
     - shorted syntax used with the button's `setOnClickListener()` method
     - the single abstract method is implemented and passed to the `setOnClickLister()`
+- [KDoc](https://kotlinlang.org/docs/kotlin-doc.html#kdoc-syntax)
+    - used to document Kotlin code
+
 
 ### Andorid 
 
@@ -97,8 +101,6 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - used in the challenges
     - [if statement](https://kotlinlang.org/docs/control-flow.html#if-expression)
     - [for loops](https://kotlinlang.org/docs/control-flow.html#for-loops)
-- [Formatting String Resources](https://developer.android.com/guide/topics/resources/string-resource.html#formatting-strings)
-
 
 ### Android 
 
@@ -115,10 +117,18 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Logcat Utility](https://developer.android.com/studio/debug/am-logcat)
     - created a log filter
     - extra: [commandline utility](https://developer.android.com/studio/command-line/logcat)
+- [Formatting String Resources](https://developer.android.com/guide/topics/resources/string-resource.html#formatting-strings)
 - [Activity.finish()](https://developer.android.com/reference/android/app/Activity#finish())
 
 ### Challenge #4: Preventing Repeat Answers
+
+- Added an `isAnswered` Boolean to the `Question` class
+- Added functions to `QuizViewModel` to determine the answer state of the current quesiton
+- Button state loss on configuration change is fixed in Chapter 7, Challenge 10
+
 ### Challenge #5: Graded Quiz
+
+- Modified the `checkAnswer()` function to check if all the questions are answered
 
 ## Chapter 4: Persisting UI State
 [go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
@@ -219,3 +229,70 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - [additional resources & samples](https://developer.android.com/training/testing/espresso/additional-resources#samples)
 
 ### Challenge #9: Asserting Yourself
+
+- Asserted that `QuizViewModel` showed the correct question test after the `moveToNext()` operation
+
+## Chapter 7: Your Second Activity
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
+
+### Kotlin
+
+- [Companion Objects](https://kotlinlang.org/docs/object-declarations.html#companion-objects)
+    - used to access the `newIntent()` method directly from the CheatActivity class
+    - [object expressions](https://kotlinlang.org/docs/object-declarations.html)
+- [Scope Functions](https://kotlinlang.org/docs/scope-functions.html)
+    - [apply() scope function](https://kotlinlang.org/docs/scope-functions.html#apply)
+        -  used to configure the new intent in the CheatActivity `newIntent()` function
+- [Qualified this (this@ClassName)](https://kotlinlang.org/docs/this-expressions.html#qualified-this)
+    - used to pass a reference of the MainActivity in CheatActivity's `newIntent()` function
+- [When Expression](https://kotlinlang.org/docs/control-flow.html#when-expression)
+    - used to check the Boolean put into the intent used to launch CheatActivity
+- [Lambdas](https://kotlinlang.org/docs/lambdas.html)
+    - [trailing lambdas](https://kotlinlang.org/docs/lambdas.html#passing-trailing-lambdas)
+        - passed as a callback to the `registerForActivityResult()` function
+- [Safe Calls (?.)](https://kotlinlang.org/docs/null-safety.html#safe-calls)
+    - used to access the data of the result returned by the cheatLauncher: `result.data?`
+
+### Android
+
+- [Activity Overview](https://developer.android.com/guide/components/activities/intro-activities)
+    - [declare activity](https://developer.android.com/guide/components/activities/intro-activities#da)
+    - [declare intent](https://developer.android.com/guide/components/activities/intro-activities#dif)
+- [Intents Overview](https://developer.android.com/guide/components/intents-filters)
+    - [explicit intent](https://developer.android.com/guide/components/intents-filters#ExampleExplicit)
+        - used to specifically choose the CheatActivity as the activity to launch
+    - [implicit intent](https://developer.android.com/guide/components/intents-filters#ExampleSend)
+    - [common intents](https://developer.android.com/guide/components/intents-common)
+    - [intent api reference](https://developer.android.com/reference/android/content/Intent)
+- [Android Manifest Overview](https://developer.android.com/guide/topics/manifest/manifest-intro)
+    - [activity](https://developer.android.com/guide/topics/manifest/activity-element)
+        - used to declare the MainActivity and CheatActivity as being part of the app
+    - [intent-filter](https://developer.android.com/guide/topics/manifest/intent-filter-element)
+        - used to declare MainActivity as the first activity in the app
+- [Get Result From Activity Overview](https://developer.android.com/training/basics/intents/result)
+    - [launch for result](https://developer.android.com/training/basics/intents/result#launch)
+        - used to start a new activity that returns data after it finishes
+    - [getBooleanExtra](https://developer.android.com/reference/android/content/Intent#getBooleanExtra(java.lang.String,%20boolean))
+        - used to get the data passed to CheatActivity when MainActivity launched it
+    - [recieve result](https://developer.android.com/training/basics/intents/result#separate)
+        - used to capture data from an activity started from another activity
+    - API References
+        - [startActivity()](https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent))
+        - [startActivityForResult()](https://developer.android.com/reference/android/app/Activity#startActivityForResult(android.content.Intent,%20int))
+- [The Back Stack](https://developer.android.com/guide/components/activities/tasks-and-back-stack)
+    - demonstrated the differences between the first activity and started activities on the backstack
+
+### Challenge #10: Closing Loopholes for Cheaters
+
+- Added a `cheated` Boolean variable to each `Question` object
+- Modified the `Question` class to inherit from `java.io.Serializable` so it can be stored in the saveStateHandle
+    - [serializable Java reference](https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html)
+- Added the `questionBank` in the `QuizViewModel` to the MainActivity's savedState
+- Included the cheat status along with the answer in the intent used to launch `CheatActivity`
+- Restored UI state of the CheatActivity using values obtained from MainActivity
+
+### Challenge #11: Tracking Cheat Status by Question
+
+- Added the `didUserCheat()` and `setQuestionCheatStatus()` functions to the ViewModel
+- Modified the launcher callback to set the cheat status after CheatActivity exits
+- Modified the `checkAnswer()` function to check the current question cheat status

@@ -1,13 +1,14 @@
-package com.c0deblack.bignerdranch.ch06
+package com.c0deblack.bignerdranch.ch07_challenge10
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
 import androidx.activity.viewModels
 import com.c0deblack.bignerdranch.androidprogramming.R
-import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch06LayoutBinding
+import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch07LayoutChallenge10Binding
 import com.google.android.material.snackbar.Snackbar
 
 /***************************************************************************************************
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
  * View Binding
  * Reference to the View Binding object. Gives access to all layout elements with an ID attribute.
  **************************************************************************************************/
-    private lateinit var binding: Ch06LayoutBinding
+    private lateinit var binding: Ch07LayoutChallenge10Binding
 /***************************************************************************************************
 * ViewModel
  * Create a reference to the QuizViewModel and invoke the viewModels() property delegate.
@@ -39,6 +40,18 @@ class MainActivity : AppCompatActivity() {
  * Keeps track of the number of correctly answered questions. Used to get the final score %.
  **************************************************************************************************/
     private var numCorrect = 0f
+/***************************************************************************************************
+ * Create Activity Launcher
+ * Used to handle the result of a launched activity. Uses [registerForActivityResult] to obtain an
+ * [androidx.activity.result.ActivityResultLauncher] that is used to launch the CheatActivity. A
+ * Boolean representing whether or not the user cheated is returned and extracted from an Intent.
+ **************************************************************************************************/
+    private val cheatLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        quizViewModel.isCheater =
+            result.data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
+    }
 /*################################################################################################*/
 // START onCreate(savedInstanceState: Bundle?)
 /*################################################################################################*/
@@ -52,7 +65,7 @@ class MainActivity : AppCompatActivity() {
  * Inflate the XML
  * Inflate the chapter02_activity_main.xml resource using the View Binding
  ***************************************************************************************************/
-        binding = Ch06LayoutBinding.inflate(layoutInflater)
+        binding = Ch07LayoutChallenge10Binding.inflate(layoutInflater)
         setContentView(binding.root)
 /***************************************************************************************************
  * Log ViewModel
@@ -110,12 +123,29 @@ class MainActivity : AppCompatActivity() {
             setAnswerButtonState()
         }
 /***************************************************************************************************
+ * Cheat Button
+ * Listener for the cheat button. Displays the CheatActivity when clicked.
+ *
+ * See link below for description of this@MainActivity usage
+ * @link https://kotlinlang.org/docs/this-expressions.html#qualified-this
+ **************************************************************************************************/
+        binding.cheatButton.setOnClickListener {
+            val answerIsTrue = quizViewModel.currentQuestionAnswer
+            val intent = CheatActivity.newIntent(
+                this@MainActivity,
+                answerIsTrue,
+                quizViewModel.isCheater
+            )
+            //startActivity(intent)
+            cheatLauncher.launch(intent)
+        }
+/***************************************************************************************************
  * Set Text
  * Set the text in the text view when the view is created.
  **************************************************************************************************/
         this.updateQuestions()
         this.setAnswerButtonState()
-}
+    }
 /*################################################################################################*/
 // END onCreate(savedInstanceState: Bundle?)
 /*################################################################################################*/
@@ -185,11 +215,16 @@ class MainActivity : AppCompatActivity() {
  **************************************************************************************************/
     private fun checkAnswer(userAnswer: Boolean) {
         val correctAnswer = quizViewModel.currentQuestionAnswer
-        val messageId = if (userAnswer == correctAnswer) {
-            numCorrect++
-            R.string.correct_toast
-        } else {
-            R.string.incorrect_toast
+
+        // --- set the correct toast based on whether or not the user cheated and whether the
+        // --- answer is correct
+        val messageId = when {
+            quizViewModel.isCheater -> R.string.judgement_toast
+            userAnswer == correctAnswer -> {
+                numCorrect++
+                R.string.correct_toast
+            }
+            else -> R.string.incorrect_toast
         }
         displaySnackbar(messageId)
 
