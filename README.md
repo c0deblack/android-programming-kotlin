@@ -285,7 +285,14 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 ### Challenge #10: Closing Loopholes for Cheaters
 
 - Added a `cheated` Boolean variable to each `Question` object
-- Modified the `Question` class to inherit from `java.io.Serializable`
+- Modified the `Question` class to inherit from `java.io.Serializable` so it can be stored in the saveStateHandle
+    - [serializable Java reference](https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html)
 - Added the `questionBank` in the `QuizViewModel` to the MainActivity's savedState
 - Included the cheat status along with the answer in the intent used to launch `CheatActivity`
 - Restored UI state of the CheatActivity using values obtained from MainActivity
+
+### Challenge #11: Tracking Cheat Status by Question
+
+- Added the `didUserCheat()` and `setQuestionCheatStatus()` functions to the ViewModel
+- Modified the launcher callback to set the cheat status after CheatActivity exits
+- Modified the `checkAnswer()` function to check the current question cheat status
