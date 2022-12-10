@@ -14,6 +14,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 5) [Debugging Android](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-5-debugging-android)
 6) [Testing](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-6-testing)
 7) [Your Second Activity](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-7-your-second-activity)
+8) [Android SDK Versions and Compatibility](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-8-android-sdk-versions-and-compatibility)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
@@ -300,6 +301,12 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 ## Chapter #8: Android SDK Versions and Compatibility
 [go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
+### Kotlin
+
+- [BuildString](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/build-string.html)
+    - used to generate the text that displays the current API level in the CheatActivity
+- [If Expression](https://kotlinlang.org/docs/control-flow.html)
+    - used to check the current cheat count
 
 ### Andorid 
 
