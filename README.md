@@ -326,7 +326,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 ### Challenge #11: Reporting the Device's Android Version
 
-- used the `VERSION.SDK_INT` constant to get the current API
+- used the `Build.VERSION.SDK_INT` constant to get the current API
 - used a formatted string resource to display the current API version with additional text
 
 ### Challenge #10: Limited Cheating
