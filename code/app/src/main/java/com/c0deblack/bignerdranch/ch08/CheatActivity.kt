@@ -1,11 +1,11 @@
-package com.c0deblack.bignerdranch.ch07_challenge11
+package com.c0deblack.bignerdranch.ch08
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.c0deblack.bignerdranch.androidprogramming.R
-import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch07LayoutChallenge11ActivityCheatBinding
+import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch08LayoutActivityCheatBinding
 
 /***************************************************************************************************
  * Key Used For Launcher Intent
@@ -31,7 +31,7 @@ class CheatActivity : AppCompatActivity() {
 /***************************************************************************************************
  * Declare ViewBinding
  **************************************************************************************************/
-    private lateinit var binding: Ch07LayoutChallenge11ActivityCheatBinding
+    private lateinit var binding: Ch08LayoutActivityCheatBinding
 /***************************************************************************************************
  * Answered Flag
  * Used to determine if the user has cheated or not.
@@ -47,7 +47,7 @@ private var isCheater = false
 //=*************************************************************************************************
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = Ch07LayoutChallenge11ActivityCheatBinding.inflate(layoutInflater)
+        binding = Ch08LayoutActivityCheatBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
     // --- return false if the EXTRA_ANSWER_IS_TRUE key isn't set

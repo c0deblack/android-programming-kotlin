@@ -18,9 +18,9 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
 ## Chapter #1: Your First Android Application
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
 ### Kotlin 
-[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
 - [Basic Syntax](https://kotlinlang.org/docs/basic-syntax.html)
     - all of the basics to get started
@@ -296,3 +296,27 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - Added the `didUserCheat()` and `setQuestionCheatStatus()` functions to the ViewModel
 - Modified the launcher callback to set the cheat status after CheatActivity exits
 - Modified the `checkAnswer()` function to check the current question cheat status
+
+## Chapter #8: Android SDK Versions and Compatibility
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
+
+
+### Andorid 
+
+- [Android Developer Documentation (Top-Level)](https://developer.android.com/)
+- [Android Verions Overview](https://developer.android.com/about/versions)
+- [Build Version](https://developer.android.com/reference/android/os/Build.VERSION)
+    - used to perform a conditional version check prior to calling a higher than minSdk API feature (blur effect)
+- [Version Codes](https://developer.android.com/reference/android/os/Build.VERSION_CODES)
+    - checked current API level versus API level 31 to implement a blur effect
+- [Google Play Target API](https://developer.android.com/google/play/requirements/target-sdk)
+- [minSdk, targetSdk, compiledSdk](https://medium.com/androiddevelopers/picking-your-compilesdkversion-minsdkversion-targetsdkversion-a098a0341ebd) 
+- [Android Jetpack Overview](https://developer.android.com/jetpack/)
+- [@RequiredApi Annotation](https://developer.android.com/reference/kotlin/androidx/annotation/RequiresApi)
+    - used to prevet Androi Lint error when defining a function that uses an API features higher than minSdk version
+- [Render Effect API](https://developer.android.com/reference/android/graphics/RenderEffect)
+    - used to apply a blur effect to the cheat button
+
+### Challenge #11: Repoting the Device's Android Version
+
+### Challenge #10: Limited Cheating
