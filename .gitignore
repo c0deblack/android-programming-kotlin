@@ -20,5 +20,5 @@
 .cxx
 local.properties
 *~
-*.swp
+*.sw*
 /.keys

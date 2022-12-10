@@ -14,13 +14,14 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 5) [Debugging Android](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-5-debugging-android)
 6) [Testing](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-6-testing)
 7) [Your Second Activity](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-7-your-second-activity)
+8) [Android SDK Versions and Compatibility](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-8-android-sdk-versions-and-compatibility)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
 ## Chapter #1: Your First Android Application
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
 ### Kotlin 
-[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
 - [Basic Syntax](https://kotlinlang.org/docs/basic-syntax.html)
     - all of the basics to get started
@@ -296,3 +297,40 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - Added the `didUserCheat()` and `setQuestionCheatStatus()` functions to the ViewModel
 - Modified the launcher callback to set the cheat status after CheatActivity exits
 - Modified the `checkAnswer()` function to check the current question cheat status
+
+## Chapter #8: Android SDK Versions and Compatibility
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
+
+### Kotlin
+
+- [BuildString](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/build-string.html)
+    - used to generate the text that displays the current API level in the CheatActivity
+- [If Expression](https://kotlinlang.org/docs/control-flow.html)
+    - used to check the current cheat count
+
+### Android
+
+- [Android Developer Documentation (Top-Level)](https://developer.android.com/)
+- [Android Verions Overview](https://developer.android.com/about/versions)
+- [Build Version](https://developer.android.com/reference/android/os/Build.VERSION)
+    - used to perform a conditional version check prior to calling a higher than minSdk API feature (blur effect)
+- [Version Codes](https://developer.android.com/reference/android/os/Build.VERSION_CODES)
+    - checked current API level versus API level 31 to implement a blur effect
+- [Google Play Target API](https://developer.android.com/google/play/requirements/target-sdk)
+- [minSdk, targetSdk, compiledSdk](https://medium.com/androiddevelopers/picking-your-compilesdkversion-minsdkversion-targetsdkversion-a098a0341ebd) 
+- [Android Jetpack Overview](https://developer.android.com/jetpack/)
+- [@RequiredApi Annotation](https://developer.android.com/reference/kotlin/androidx/annotation/RequiresApi)
+    - used to prevet Androi Lint error when defining a function that uses an API features higher than minSdk version
+- [Render Effect API](https://developer.android.com/reference/android/graphics/RenderEffect)
+    - used to apply a blur effect to the cheat button
+
+### Challenge #11: Reporting the Device's Android Version
+
+- used the `Build.VERSION.SDK_INT` constant to get the current API
+- used a formatted string resource to display the current API version with additional text
+
+### Challenge #10: Limited Cheating
+
+- added a cheat button and text views displaying cheat counts to the MainActivity
+- added cheat count variables and a method to update them within the `QuizViewModel`
+- applied updates to the MainActivity cheat counts and cheat button in the CheatActivity result callback

@@ -1,11 +1,12 @@
-package com.c0deblack.bignerdranch.ch07_challenge11
+package com.c0deblack.bignerdranch.ch08_challenge13
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.c0deblack.bignerdranch.androidprogramming.R
-import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch07LayoutChallenge11ActivityCheatBinding
+import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch08LayoutChallenge13ActivityCheatBinding
 
 /***************************************************************************************************
  * Key Used For Launcher Intent
@@ -31,7 +32,7 @@ class CheatActivity : AppCompatActivity() {
 /***************************************************************************************************
  * Declare ViewBinding
  **************************************************************************************************/
-    private lateinit var binding: Ch07LayoutChallenge11ActivityCheatBinding
+    private lateinit var binding: Ch08LayoutChallenge13ActivityCheatBinding
 /***************************************************************************************************
  * Answered Flag
  * Used to determine if the user has cheated or not.
@@ -47,7 +48,7 @@ private var isCheater = false
 //=*************************************************************************************************
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = Ch07LayoutChallenge11ActivityCheatBinding.inflate(layoutInflater)
+        binding = Ch08LayoutChallenge13ActivityCheatBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
     // --- return false if the EXTRA_ANSWER_IS_TRUE key isn't set
@@ -64,6 +65,22 @@ private var isCheater = false
     }
 //=*************************************************************************************************
 //= END onCreate
+//=*************************************************************************************************
+//=*************************************************************************************************
+//= START onStart
+//=*************************************************************************************************
+    override fun onStart() {
+        super.onStart()
+/***************************************************************************************************
+ * Challenge #12: Reporting the Device's Android Version
+ **************************************************************************************************/
+        binding.apiLevelTextView.text = buildString {
+            append("API Level ")
+            append(Build.VERSION.SDK_INT)
+        }
+    }
+//=*************************************************************************************************
+//= END onStart
 //=*************************************************************************************************
 /***************************************************************************************************
  * Generate New CheatActivity Intent
