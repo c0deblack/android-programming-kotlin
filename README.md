@@ -308,7 +308,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [If Expression](https://kotlinlang.org/docs/control-flow.html)
     - used to check the current cheat count
 
-### Andorid 
+### Android
 
 - [Android Developer Documentation (Top-Level)](https://developer.android.com/)
 - [Android Verions Overview](https://developer.android.com/about/versions)
@@ -324,6 +324,13 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Render Effect API](https://developer.android.com/reference/android/graphics/RenderEffect)
     - used to apply a blur effect to the cheat button
 
-### Challenge #11: Repoting the Device's Android Version
+### Challenge #11: Reporting the Device's Android Version
+
+- used the `VERSION.SDK_INT` constant to get the current API
+- used a formatted string resource to display the current API version with additional text
 
 ### Challenge #10: Limited Cheating
+
+- added a cheat button and text views displaying cheat counts to the MainActivity
+- added cheat count variables and a method to update them within the `QuizViewModel`
+- applied updates to the MainActivity cheat counts and cheat button in the CheatActivity result callback
