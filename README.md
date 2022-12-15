@@ -348,6 +348,8 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - updated the value of a `Crime` object using itself `copy` method.
 - [TextView.doOnTextChanged()](https://developer.android.com/reference/kotlin/androidx/core/widget/package-summary#(android.widget.TextView).doOnTextChanged(kotlin.Function4))
     - used this Kotlin Extension function to update the title held within a `Crime` object
+- [checkNotNull](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/check-not-null.html)
+    - used for the non-null version of the viewBinding reference within the fragment class
 
 ### Android
 
@@ -363,14 +365,22 @@ This file outlines some of the Kotlin and Android features introduced in each ch
         - [viewGroup](https://developer.android.com/reference/android/view/ViewGroup.html)
     - [onViewCreated()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onViewCreated(android.view.View,android.os.Bundle))
         - performed actions after the views bacome available 
+    - [onDestroyView](
 - [FragmentContainerView](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentContainerView?hl=en)
     - created a container to host fragments from the main CriminalIntent activity's layout
-- [Fragment Transactions](https://developer.android.com/guide/fragments/transactions?hl=en)
 - [Fragment Manager](https://developer.android.com/guide/fragments/fragmentmanager?hl=en)
+    - controls fragment lifecycle from the hosting activity
+    - used to manually load a fragment vs using the FragmentContainerView's `android:name` attribute
+    - [supportFragmentManager](https://developer.android.com/guide/fragments/fragmentmanager#access)
+        - used the `supportFragmentManager` to access CriminalIntent activity fragment manager
+    - [Fragment Transactions](https://developer.android.com/guide/fragments/transactions?hl=en)
+        - performed a fragment transaction to load the CrimeDetailFragment into the FragmentContainerView
+    - [Fragment Backstack](https://developer.android.com/guide/fragments/fragmentmanager#perform)
 - [Saving Fragment State](https://developer.android.com/guide/fragments/saving-state?hl=en)
 
 - [ViewBinding In Fragments](https://developer.android.com/topic/libraries/view-binding#fragments)
-    - obtained references to views in a fragment using View Binding
+    - obtained a nullable reference to the view binding
+    - nulled the binding referenec in the `onDestroyView` method
 
 - [Style and Themes Overview](https://developer.android.com/develop/ui/views/theming/themes)
     - [XML andtroid:textApperance attribute](https://developer.android.com/develop/ui/views/theming/themes#textappearance)

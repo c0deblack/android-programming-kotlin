@@ -19,8 +19,13 @@ class CrimeDetailFragment : Fragment() {
  **************************************************************************************************/
     // --- Private instance of a single [Crime] object.
     private lateinit var crime: Crime
+    // --- Nullable backing property for the viewBinding
+    private var _binding: Ch09LayoutFragmentCrimeDetailBinding? = null
     // --- Reference to the fragment's layout [Ch09LayoutFragmentCrimeDetailBinding].
-    private lateinit var binding: Ch09LayoutFragmentCrimeDetailBinding
+    private val binding
+        get() = checkNotNull(_binding) {
+            "Cannot access binding because it is null. Is the view visible?"
+        }
 /***************************************************************************************************
  * The onCreate Method.
  * Initialize the fragments private variables. A private instance of a [Crime] object is
@@ -48,7 +53,7 @@ class CrimeDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = Ch09LayoutFragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
+        _binding = Ch09LayoutFragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 /***************************************************************************************************
@@ -74,5 +79,14 @@ class CrimeDetailFragment : Fragment() {
                 crime = crime.copy(isSolved = isChecked)
             }
         }
+    }
+/***************************************************************************************************
+ * The onDestroyView Method.
+ * Used to null out the reference to the viewBinding. Fragment views are destroyed when not shown.
+ * Nulling out the reference allows unused memory to be freed.
+ **************************************************************************************************/
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
