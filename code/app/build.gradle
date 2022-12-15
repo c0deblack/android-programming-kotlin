@@ -38,6 +38,7 @@ android {
  **************************************************************************************************/
         viewBinding true
     }
+    buildToolsVersion '33.0.0'
 }
 
 dependencies {
@@ -61,4 +62,8 @@ dependencies {
  * https://developer.android.com/guide/fragments/create?hl=en#setup
  **************************************************************************************************/
     implementation 'androidx.fragment:fragment-ktx:1.5.5'
+    debugImplementation 'androidx.fragment:fragment-testing:1.5.5'
+/***************************************************************************************************
+ * Add support for testing fragments in an Instrumentation Test with the FragmentScenario class
+ **************************************************************************************************/
 }

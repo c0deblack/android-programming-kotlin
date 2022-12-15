@@ -15,6 +15,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 6) [Testing](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-6-testing)
 7) [Your Second Activity](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-7-your-second-activity)
 8) [Android SDK Versions and Compatibility](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-8-android-sdk-versions-and-compatibility)
+9) [Fragments](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-9-fragments)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
@@ -211,6 +212,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 ### Android
 
+- [Create New Test](https://developer.android.com/studio/test/test-in-android-studio#create-new-tests)
 - [Testing Overview](https://developer.android.com/training/testing)
     - [Fundamentals](https://developer.android.com/training/testing/fundamentals)
     - [What to Test](https://developer.android.com/training/testing/fundamentals/what-to-test)
@@ -365,7 +367,6 @@ This file outlines some of the Kotlin and Android features introduced in each ch
         - [viewGroup](https://developer.android.com/reference/android/view/ViewGroup.html)
     - [onViewCreated()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onViewCreated(android.view.View,android.os.Bundle))
         - performed actions after the views bacome available 
-    - [onDestroyView](
 - [FragmentContainerView](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentContainerView?hl=en)
     - created a container to host fragments from the main CriminalIntent activity's layout
 - [Fragment Manager](https://developer.android.com/guide/fragments/fragmentmanager?hl=en)
@@ -376,7 +377,6 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - [Fragment Transactions](https://developer.android.com/guide/fragments/transactions?hl=en)
         - performed a fragment transaction to load the CrimeDetailFragment into the FragmentContainerView
     - [Fragment Backstack](https://developer.android.com/guide/fragments/fragmentmanager#perform)
-- [Saving Fragment State](https://developer.android.com/guide/fragments/saving-state?hl=en)
 
 - [ViewBinding In Fragments](https://developer.android.com/topic/libraries/view-binding#fragments)
     - obtained a nullable reference to the view binding
@@ -400,4 +400,9 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - used to assign a date to each `Crime` class object
 
 
-### Challenge #11:
+### Challenge #11: Testing with FragmentScenario
+
+- [Fragnent Testing Overview](https://developer.android.com/guide/fragments/test)
+    - added dependency to use `FragmentScenario`
+- [FragmentScenario](https://developer.android.com/reference/kotlin/androidx/fragment/app/testing/FragmentScenario?hl=en)
+    - used to drive CrimeDetailFragment's lifecyle in an instrumentation test

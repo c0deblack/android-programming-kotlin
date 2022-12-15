@@ -18,11 +18,11 @@ class CrimeDetailFragment : Fragment() {
  * Private Fragment Properties
  **************************************************************************************************/
     // --- Private instance of a single [Crime] object.
-    private lateinit var crime: Crime
+    lateinit var crime: Crime
     // --- Nullable backing property for the viewBinding
     private var _binding: Ch09LayoutFragmentCrimeDetailBinding? = null
     // --- Reference to the fragment's layout [Ch09LayoutFragmentCrimeDetailBinding].
-    private val binding
+    val binding
         get() = checkNotNull(_binding) {
             "Cannot access binding because it is null. Is the view visible?"
         }
