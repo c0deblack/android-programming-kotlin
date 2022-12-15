@@ -137,6 +137,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 ### Kotin 
 
 - [Class Constructor / Initializer](https://kotlinlang.org/docs/classes.html#constructors)
+- [Class Inheritance](https://kotlinlang.org/docs/inheritance.html)
 - [Property Delegation](https://kotlinlang.org/docs/delegated-properties.html) using the `by` keyword
 - [Lazy Initialized Properties](https://kotlinlang.org/docs/properties.html#late-initialized-properties-and-variables)
 - [Computed Properties / Getters & Setters](https://kotlinlang.org/docs/properties.html#getters-and-setters)
@@ -334,3 +335,59 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - added a cheat button and text views displaying cheat counts to the MainActivity
 - added cheat count variables and a method to update them within the `QuizViewModel`
 - applied updates to the MainActivity cheat counts and cheat button in the CheatActivity result callback
+
+
+## Chapter #9: Fragments
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
+
+### Kotlin
+
+- [Named Arguments](https://kotlinlang.org/docs/functions.html#named-arguments)
+    - used when instantiating a single crime object from the `Crime` constructor
+- [Data Class Copy](https://kotlinlang.org/docs/data-classes.html#copying)
+    - updated the value of a `Crime` object using itself `copy` method.
+- [TextView.doOnTextChanged()](https://developer.android.com/reference/kotlin/androidx/core/widget/package-summary#(android.widget.TextView).doOnTextChanged(kotlin.Function4))
+    - used this Kotlin Extension function to update the title held within a `Crime` object
+
+### Android
+
+- [Fragments Overview](https://developer.android.com/guide/fragments?hl=en)
+    - [create a fragment](https://developer.android.com/guide/fragments/create?hl=en)
+        - added fragment dependency to build.gradle (module)
+- [Fragment Lifecyle](https://developer.android.com/guide/fragments/lifecycle?hl=en)
+    - performed various operations within fragment lifecyle methods
+    - [onCreate()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreate(android.os.Bundle))
+    - [onCreateView()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle))
+        - generated the layout using a View Binding
+        - [layoutInflator](https://developer.android.com/reference/android/view/LayoutInflater.html)
+        - [viewGroup](https://developer.android.com/reference/android/view/ViewGroup.html)
+    - [onViewCreated()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onViewCreated(android.view.View,android.os.Bundle))
+        - performed actions after the views bacome available 
+- [FragmentContainerView](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentContainerView?hl=en)
+    - created a container to host fragments from the main CriminalIntent activity's layout
+- [Fragment Transactions](https://developer.android.com/guide/fragments/transactions?hl=en)
+- [Fragment Manager](https://developer.android.com/guide/fragments/fragmentmanager?hl=en)
+- [Saving Fragment State](https://developer.android.com/guide/fragments/saving-state?hl=en)
+
+- [ViewBinding In Fragments](https://developer.android.com/topic/libraries/view-binding#fragments)
+    - obtained references to views in a fragment using View Binding
+
+- [Style and Themes Overview](https://developer.android.com/develop/ui/views/theming/themes)
+    - [XML andtroid:textApperance attribute](https://developer.android.com/develop/ui/views/theming/themes#textappearance)
+        - used to assign a Material Design style to the fragment text elements
+
+- [Autofill Overview](https://developer.android.com/guide/topics/text/autofill)
+    - [XML android:importantForAutofill attribute](https://developer.android.com/guide/topics/text/autofill-optimize#important)
+        - used to disable autofill on the fragments EditView
+- [EditView Hint](https://developer.android.com/reference/android/widget/TextView#attr_android:hint)
+    - used to show a hint for the fragment's EditView
+
+### Java
+
+- [UUID](https://docs.oracle.com/javase/7/docs/api/java/util/UUID.html)
+    - used to assign a unique ID to each `Crime` class object
+- [Date]( https://docs.oracle.com/javase/8/docs/api/java/util/Date.html)
+    - used to assign a date to each `Crime` class object
+
+
+### Challenge #11:
