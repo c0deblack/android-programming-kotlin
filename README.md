@@ -7,15 +7,16 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 ## Table of Contents
 
-1) [Your First Android Application](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-1-your-first-android-application)
-2) [Interactive User Interfaces](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-2-interactive-user-interfaces)
-3) [The Activity Lifecycle](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-3-the-activity-lifecycle)
-4) [Persisting UI State](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-4-persisting-ui-state)
-5) [Debugging Android](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-5-debugging-android)
-6) [Testing](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-6-testing)
-7) [Your Second Activity](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-7-your-second-activity)
-8) [Android SDK Versions and Compatibility](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-8-android-sdk-versions-and-compatibility)
-9) [Fragments](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-9-fragments)
+ 1) [Your First Android Application](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-1-your-first-android-application)
+ 2) [Interactive User Interfaces](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-2-interactive-user-interfaces)
+ 3) [The Activity Lifecycle](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-3-the-activity-lifecycle)
+ 4) [Persisting UI State](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-4-persisting-ui-state)
+ 5) [Debugging Android](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-5-debugging-android)
+ 6) [Testing](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-6-testing)
+ 7) [Your Second Activity](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-7-your-second-activity)
+ 8) [Android SDK Versions and Compatibility](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-8-android-sdk-versions-and-compatibility)
+ 9) [Fragments](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-9-fragments)
+10) [Display Lists with RecyclerView](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-10-display-lists-with-recyclerview)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
@@ -409,7 +410,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - used to drive CrimeDetailFragment's lifecyle in an instrumentation test
 
 
-## Chapter #10: Display Listss with RecyclerView
+## Chapter #10: Display Lists with RecyclerView
 [go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
 ### Kotlin
@@ -424,8 +425,13 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 - [RecyclerView Overview](https://developer.android.com/develop/ui/views/layout/recyclerview?hl=en)
     - created a recyclerview to list crimes
+    - [layout manager](https://developer.android.com/develop/ui/views/layout/recyclerview?hl=en#plan-your-layout)
+        - used to create a vertical list of items within the recyclerview
+    - [viewHolder and adapter](https://developer.android.com/develop/ui/views/layout/recyclerview?hl=en#implement-adapter)
+        - used to create and display the UI for each element in the recyclerview
 - [RecyclerView Dependencies](https://developer.android.com/jetpack/androidx/releases/recyclerview?hl=en#declaring_dependencies)
     - added dependencies to build.gradle
 - [RecyclerView Reference](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView?hl=en)
 - [Customize RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview-custom?hl=en)
     - applied the RecyclerView LinearLayout
+
