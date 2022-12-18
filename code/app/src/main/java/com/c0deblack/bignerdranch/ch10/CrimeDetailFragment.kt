@@ -1,4 +1,4 @@
-package com.c0deblack.bignerdranch.ch09
+package com.c0deblack.bignerdranch.ch10
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
-import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch09LayoutFragmentCrimeDetailBinding
+import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch10LayoutFragmentCrimeDetailBinding
 import java.util.*
 
 /***************************************************************************************************
@@ -20,7 +20,7 @@ class CrimeDetailFragment : Fragment() {
     // --- Private instance of a single [Crime] object.
     lateinit var crime: Crime
     // --- Nullable backing property for the viewBinding
-    private var _binding: Ch09LayoutFragmentCrimeDetailBinding? = null
+    private var _binding: Ch10LayoutFragmentCrimeDetailBinding? = null
     // --- Reference to the fragment's layout [Ch09LayoutFragmentCrimeDetailBinding].
     val binding
         get() = checkNotNull(_binding) {
@@ -53,7 +53,7 @@ class CrimeDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = Ch09LayoutFragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
+        _binding = Ch10LayoutFragmentCrimeDetailBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 /***************************************************************************************************

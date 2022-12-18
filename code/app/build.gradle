@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.c0deblack.bignerdranch.androidprogramming'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.c0deblack.bignerdranch.androidprogramming"
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -42,28 +42,36 @@ android {
 }
 
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.activity:activity-ktx:1.7.0-alpha02'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
-
 /***************************************************************************************************
  * Add support for the ViewModel API
  * https://developer.android.com/topic/libraries/view-binding
  **************************************************************************************************/
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
-    implementation 'androidx.activity:activity-ktx:1.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0-alpha03'
 /***************************************************************************************************
  * Add support for Fragments
  * https://developer.android.com/guide/fragments/create?hl=en#setup
  **************************************************************************************************/
-    implementation 'androidx.fragment:fragment-ktx:1.5.5'
-    debugImplementation 'androidx.fragment:fragment-testing:1.5.5'
+    implementation 'androidx.fragment:fragment-ktx:1.6.0-alpha04'
 /***************************************************************************************************
  * Add support for testing fragments in an Instrumentation Test with the FragmentScenario class
+ * https://issuetracker.google.com/issues/128612536
  **************************************************************************************************/
+    androidTestImplementation 'androidx.fragment:fragment-testing:1.6.0-alpha04'
+    debugImplementation 'androidx.fragment:fragment-testing-manifest:1.6.0-alpha04'
+/***************************************************************************************************
+ * Add support for the RecyclerView
+ * https://developer.android.com/develop/ui/views/layout/recyclerview?hl=en
+ * https://developer.android.com/jetpack/androidx/releases/recyclerview?hl=en#declaring_dependencies
+ **************************************************************************************************/
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    // For control over item selection of both touch and mouse driven selection
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
 }

@@ -8,44 +8,26 @@ import android.os.Bundle
 import com.c0deblack.bignerdranch.androidprogramming.R
 import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch08LayoutChallenge13ActivityCheatBinding
 
-/***************************************************************************************************
- * Key Used For Launcher Intent
- * Used as a key in the intent's kay/value mappings.
- **************************************************************************************************/
+// --- constants used as keys in intent bundle mappings
 const val EXTRA_ANSWER_IS_TRUE = "com.c0deblack.bignerdranch.qeoquiz.answer_is_true"
-/***************************************************************************************************
- * Key Used For Returned Intent
- **************************************************************************************************/
 const val EXTRA_ANSWER_SHOWN = "com.c0deblack.bignerdranch.qeoquiz.answer_shown"
-/***************************************************************************************************
- * Challenge #10
- *      Key used to keep track of question number in the intent provided to CheatActivity.
- **************************************************************************************************/
 const val EXTRA_IS_CHEATER = "com.c0deblack.bignerdranch.qeoquiz.is_cheater"
 /***************************************************************************************************
- * Cheat Activity
- **************************************************************************************************/
-/**
  * This activity is used to show the answer to the user.
- */
+ **************************************************************************************************/
 class CheatActivity : AppCompatActivity() {
-/***************************************************************************************************
- * Declare ViewBinding
- **************************************************************************************************/
+    // --- declare ViewBinding
     private lateinit var binding: Ch08LayoutChallenge13ActivityCheatBinding
-/***************************************************************************************************
- * Answered Flag
- * Used to determine if the user has cheated or not.
- **************************************************************************************************/
+
+    // --- used to determine if the user has cheated or not.
     private var answerIsTrue = false
+
+    // --- keep track of cheat status across the MainActivity and CheatActivity.
+    private var isCheater = false
+
 /***************************************************************************************************
- * Cheat Flag
- * Keep track of cheat status across the MainActivity and CheatActivity.
+ * Initialize the [CheatActivity]. Overrides [AppCompatActivity.onCreate].
  **************************************************************************************************/
-private var isCheater = false
-//=*************************************************************************************************
-//= START onCreate
-//=*************************************************************************************************
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = Ch08LayoutChallenge13ActivityCheatBinding.inflate(layoutInflater)
@@ -63,25 +45,16 @@ private var isCheater = false
             setCheatState()
         }
     }
-//=*************************************************************************************************
-//= END onCreate
-//=*************************************************************************************************
-//=*************************************************************************************************
-//= START onStart
-//=*************************************************************************************************
-    override fun onStart() {
-        super.onStart()
 /***************************************************************************************************
  * Challenge #12: Reporting the Device's Android Version
  **************************************************************************************************/
+    override fun onStart() {
+        super.onStart()
         binding.apiLevelTextView.text = buildString {
             append("API Level ")
             append(Build.VERSION.SDK_INT)
         }
     }
-//=*************************************************************************************************
-//= END onStart
-//=*************************************************************************************************
 /***************************************************************************************************
  * Generate New CheatActivity Intent
  * Create a new intent that can be used to launch the CheatActivity. Use a companion object to make

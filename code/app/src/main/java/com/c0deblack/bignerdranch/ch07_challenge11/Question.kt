@@ -5,8 +5,6 @@ import java.io.Serializable
 
 /***************************************************************************************************
  * A Kotlin Data Class is used to hold the App's data.
- *
- * This is the Model in the Model-View-Controller software architecture pattern.
  **************************************************************************************************/
 data class Question (
     @StringRes val textResId: Int,

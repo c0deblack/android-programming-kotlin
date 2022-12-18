@@ -7,14 +7,14 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Test
 import org.junit.runner.RunWith
 
+/***************************************************************************************************
+ * Testing fragments.
+ **************************************************************************************************/
 @RunWith(AndroidJUnit4::class)
 class CrimeDetailFragmentTest {
 /***************************************************************************************************
- * TODO: Verify this test.
- * There appears to be a bug with the fragment-testing dependency in build gradle. That library is
- * a requirement for the FragmentScenario class.
- *
- * issue: https://issuetracker.google.com/issues/260214138
+ *  Test that the checkbox onChecked listener is working within the CrimeDetailFragment. Success
+ *  results from the listener setting crime.isSolved to true.
  **************************************************************************************************/
     @Test
     fun testCheckBox() {

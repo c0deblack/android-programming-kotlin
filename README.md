@@ -151,6 +151,8 @@ This file outlines some of the Kotlin and Android features introduced in each ch
         - extended the ViewModel class
         - invoked the `viewModels()` property delegate
     - do not reference the Activity or its Views in the ViewModel
+- [ViewModel Dependencies](https://developer.android.com/jetpack/androidx/releases/lifecycle)
+    - added dependency to build.gradle
 - [ViewModel Lifecycle](https://developer.android.com/topic/libraries/architecture/viewmodel#lifecycle)
     - used the `onCleared()` method to display a message
 - [ViewModel Scope](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-apis)
@@ -327,12 +329,12 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Render Effect API](https://developer.android.com/reference/android/graphics/RenderEffect)
     - used to apply a blur effect to the cheat button
 
-### Challenge #11: Reporting the Device's Android Version
+### Challenge #12: Reporting the Device's Android Version
 
 - used the `Build.VERSION.SDK_INT` constant to get the current API
 - used a formatted string resource to display the current API version with additional text
 
-### Challenge #10: Limited Cheating
+### Challenge #13: Limited Cheating
 
 - added a cheat button and text views displaying cheat counts to the MainActivity
 - added cheat count variables and a method to update them within the `QuizViewModel`
@@ -348,8 +350,6 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - used when instantiating a single crime object from the `Crime` constructor
 - [Data Class Copy](https://kotlinlang.org/docs/data-classes.html#copying)
     - updated the value of a `Crime` object using itself `copy` method.
-- [TextView.doOnTextChanged()](https://developer.android.com/reference/kotlin/androidx/core/widget/package-summary#(android.widget.TextView).doOnTextChanged(kotlin.Function4))
-    - used this Kotlin Extension function to update the title held within a `Crime` object
 - [checkNotNull](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/check-not-null.html)
     - used for the non-null version of the viewBinding reference within the fragment class
 
@@ -377,20 +377,19 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - [Fragment Transactions](https://developer.android.com/guide/fragments/transactions?hl=en)
         - performed a fragment transaction to load the CrimeDetailFragment into the FragmentContainerView
     - [Fragment Backstack](https://developer.android.com/guide/fragments/fragmentmanager#perform)
-
 - [ViewBinding In Fragments](https://developer.android.com/topic/libraries/view-binding#fragments)
     - obtained a nullable reference to the view binding
     - nulled the binding referenec in the `onDestroyView` method
-
 - [Style and Themes Overview](https://developer.android.com/develop/ui/views/theming/themes)
     - [XML andtroid:textApperance attribute](https://developer.android.com/develop/ui/views/theming/themes#textappearance)
         - used to assign a Material Design style to the fragment text elements
-
 - [Autofill Overview](https://developer.android.com/guide/topics/text/autofill)
     - [XML android:importantForAutofill attribute](https://developer.android.com/guide/topics/text/autofill-optimize#important)
         - used to disable autofill on the fragments EditView
 - [EditView Hint](https://developer.android.com/reference/android/widget/TextView#attr_android:hint)
     - used to show a hint for the fragment's EditView
+- [TextView.doOnTextChanged()](https://developer.android.com/reference/kotlin/androidx/core/widget/package-summary#(android.widget.TextView).doOnTextChanged(kotlin.Function4))
+    - used this Kotlin Extension function to update the title held within a `Crime` object
 
 ### Java
 
@@ -400,9 +399,33 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - used to assign a date to each `Crime` class object
 
 
-### Challenge #11: Testing with FragmentScenario
+### Challenge #14: Testing with FragmentScenario
 
 - [Fragnent Testing Overview](https://developer.android.com/guide/fragments/test)
     - added dependency to use `FragmentScenario`
+    - [google issuetracker](https://issuetracker.google.com/issues/128612536)
+        - resolved issue with non-functioning fragment test
 - [FragmentScenario](https://developer.android.com/reference/kotlin/androidx/fragment/app/testing/FragmentScenario?hl=en)
     - used to drive CrimeDetailFragment's lifecyle in an instrumentation test
+
+
+## Chapter #9: Display Listss with RecyclerView
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
+
+### Kotlin
+
+- [Collections: mutableListOf](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html)
+    - used to create a mutable list of `Crime` objects in the ViewModel
+- [Strings](https://kotlinlang.org/docs/strings.html)
+    - [string template](https://kotlinlang.org/docs/strings.html)
+        - used to evaluate code and concatenate the result to a string
+
+### Android
+
+- [RecyclerView Overview](https://developer.android.com/develop/ui/views/layout/recyclerview?hl=en)
+    - created a recyclerview to list crimes
+- [RecyclerView Dependencies](https://developer.android.com/jetpack/androidx/releases/recyclerview?hl=en#declaring_dependencies)
+    - added dependencies to build.gradle
+- [RecyclerView Reference](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView?hl=en)
+- [Customize RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview-custom?hl=en)
+    - applied the RecyclerView LinearLayout
