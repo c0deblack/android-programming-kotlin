@@ -409,7 +409,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - used to drive CrimeDetailFragment's lifecyle in an instrumentation test
 
 
-## Chapter #9: Display Listss with RecyclerView
+## Chapter #10: Display Listss with RecyclerView
 [go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
 
 ### Kotlin
