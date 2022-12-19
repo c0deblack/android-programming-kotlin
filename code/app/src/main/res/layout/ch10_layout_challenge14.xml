@@ -5,5 +5,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="com.c0deblack.bignerdranch.ch10.CrimeListFragment"
-    tools:context="com.c0deblack.bignerdranch.ch10.CriminalIntent" />
+    android:name="com.c0deblack.bignerdranch.ch10_challenge14.CrimeListFragment"
+    tools:context="com.c0deblack.bignerdranch.ch10_challenge14.CriminalIntent" />

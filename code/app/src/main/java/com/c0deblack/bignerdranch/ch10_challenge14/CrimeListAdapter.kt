@@ -11,7 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 // --- constants used to define view types used with the recycler view
 // --- the recycler view will display a different view type if the crime requires police
 const val defaultViewType = 0
-const val requiresPoliceViewType = 0
+const val requiresPoliceViewType = 1
 
 /***************************************************************************************************
  * Declares a type that is used with the adapter. Each item list view type is encapsulated in a
