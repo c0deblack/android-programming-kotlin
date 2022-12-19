@@ -420,6 +420,8 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Strings](https://kotlinlang.org/docs/strings.html)
     - [string template](https://kotlinlang.org/docs/strings.html)
         - used to evaluate code and concatenate the result to a string
+- [Abstract Method](https://kotlinlang.org/docs/classes.html#abstract-classes)
+    - used in challenge 14 to pass unique ViewHolder objects to the same adapter based on list item view type
 
 ### Android
 
@@ -434,6 +436,8 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [RecyclerView Reference](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView?hl=en)
 - [Customize RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview-custom?hl=en)
     - applied the RecyclerView LinearLayout
+- [RecyclerView getItemViewType()](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.Adapter?hl=en#getItemViewType(int))
+    - used to generate a different item view based on the data
 - [RecyclerView ListAdapter](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/ListAdapter)
     - researched an efficient method to update a RecyclerView without re-creating the entire list
 
