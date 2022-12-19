@@ -11,31 +11,26 @@ import com.c0deblack.bignerdranch.androidprogramming.R
  * Main Activity for the GeoQuiz App.
  **************************************************************************************************/
 class MainActivity : AppCompatActivity() {
-/***************************************************************************************************
- * Define variables that will hold references to the Button views.
- *
- * The lateinit modifier allows initialization of non-null property outside of constructor
- * @see: https://kotlinlang.org/docs/properties.html#late-initialized-properties-and-variables
- **************************************************************************************************/
+
+    // --- reference to true/false UI buttons
     private lateinit var trueButton : Button
     private lateinit var falseButton: Button
 
+/***************************************************************************************************
+ * Override [AppCompatActivity.onCreate] and perform initialization operations.
+ **************************************************************************************************/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-/***************************************************************************************************
- * Inflate the XML chapter01_activity_main.xml resource
- ***************************************************************************************************/
+
+        // --- inflate the XML chapter01_activity_main.xml resource
         setContentView(R.layout.ch01_layout)
-/***************************************************************************************************
- * Get a reference to the two Button views
- **************************************************************************************************/
+
+        // --- assign views to the button variables
         trueButton  = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
-/***************************************************************************************************
- * Set onClick Listeners for the two buttons
- *
- * When a button is clicked a corresponding `Toast` message is displayed to the user.
- **************************************************************************************************/
+
+        // --- set onClick Listeners for the two buttons
+        // --- when a button is clicked a corresponding `Toast` message is displayed to the user.
         trueButton.setOnClickListener{view: View ->
             Toast.makeText(
                 this,
@@ -50,6 +45,5 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
-
     } // END onCreate(savedInstanceState: Bundle?)
 }

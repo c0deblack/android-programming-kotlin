@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidProgrammingBigNerdRanchGuide"
         tools:targetApi="31">
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch01.MainActivity"
             android:exported="true">
@@ -103,7 +102,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch07.MainActivity"
             android:exported="true">
@@ -111,7 +109,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch07.CheatActivity"
             android:exported="false">
@@ -119,7 +116,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch07_challenge10.MainActivity"
             android:exported="true">
@@ -127,7 +123,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch07_challenge10.CheatActivity"
             android:exported="false">
@@ -135,7 +130,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch07_challenge11.MainActivity"
             android:exported="true">
@@ -143,7 +137,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch07_challenge11.CheatActivity"
             android:exported="false">
@@ -151,7 +144,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch08.MainActivity"
             android:exported="true">
@@ -159,7 +151,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch08.CheatActivity"
             android:exported="false">
@@ -167,7 +158,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch08_challenge12.MainActivity"
             android:exported="true">
@@ -175,7 +165,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch08_challenge12.CheatActivity"
             android:exported="false">
@@ -183,7 +172,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch08_challenge13.MainActivity"
             android:exported="true">
@@ -191,10 +179,30 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.c0deblack.bignerdranch.ch08_challenge13.CheatActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.c0deblack.bignerdranch.ch09.CriminalIntent"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.c0deblack.bignerdranch.ch10.CriminalIntent"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.c0deblack.bignerdranch.ch10_challenge14.CriminalIntent"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

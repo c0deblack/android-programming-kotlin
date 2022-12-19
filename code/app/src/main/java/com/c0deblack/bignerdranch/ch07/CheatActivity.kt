@@ -8,34 +8,21 @@ import android.os.Bundle
 import com.c0deblack.bignerdranch.androidprogramming.R
 import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch07LayoutActivityCheatBinding
 
-/***************************************************************************************************
- * Key Used For Launcher Intent
- * Used as a key in the intent's kay/value mappings.
- **************************************************************************************************/
+// --- constants used as keys in intent bundle mappings
 const val EXTRA_ANSWER_IS_TRUE = "com.c0deblack.bignerdranch.qeoquiz.answer_is_true"
-/***************************************************************************************************
- * Key Used For Returned Intent
- **************************************************************************************************/
 const val EXTRA_ANSWER_SHOWN = "com.c0deblack.bignerdranch.qeoquiz.answer_shown"
 /***************************************************************************************************
- * Cheat Activity
- **************************************************************************************************/
-/**
  * This activity is used to show the answer to the user.
- */
+ **************************************************************************************************/
 class CheatActivity : AppCompatActivity() {
-/***************************************************************************************************
- * Declare ViewBinding
- **************************************************************************************************/
+    // --- declare ViewBinding
     private lateinit var binding: Ch07LayoutActivityCheatBinding
-/***************************************************************************************************
- * Answered Flag
- * Used to determine if the user has cheated or not.
- **************************************************************************************************/
+
+    // --- used to determine if the user has cheated or not.
     private var answerIsTrue = false
-//=*************************************************************************************************
-//= START onCreate
-//=*************************************************************************************************
+/***************************************************************************************************
+ * Initialize the [CheatActivity]. Overrides [AppCompatActivity.onCreate].
+ **************************************************************************************************/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = Ch07LayoutActivityCheatBinding.inflate(layoutInflater)
@@ -50,14 +37,10 @@ class CheatActivity : AppCompatActivity() {
                 else -> R.string.false_button
             }
             binding.answerTextView.setText(answerText)
-
             // --- return the result back to the launcher activity
             setAnswerShownResult(true)
         }
-    }
-//=*************************************************************************************************
-//= END onCreate
-//=*************************************************************************************************
+    } // END onCreate
 /***************************************************************************************************
  * Generate New CheatActivity Intent
  * Create a new intent that can be used to launch the CheatActivity. Use a companion object to make
@@ -84,4 +67,4 @@ class CheatActivity : AppCompatActivity() {
         }
         setResult(Activity.RESULT_OK, data)
     }
-}
+} // END CheatActivity

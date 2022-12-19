@@ -7,14 +7,16 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 ## Table of Contents
 
-1) [Your First Android Application](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-1-your-first-android-application)
-2) [Interactive User Interfaces](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-2-interactive-user-interfaces)
-3) [The Activity Lifecycle](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-3-the-activity-lifecycle)
-4) [Persisting UI State](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-4-persisting-ui-state)
-5) [Debugging Android](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-5-debugging-android)
-6) [Testing](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-6-testing)
-7) [Your Second Activity](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-7-your-second-activity)
-8) [Android SDK Versions and Compatibility](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-8-android-sdk-versions-and-compatibility)
+ 1) [Your First Android Application](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-1-your-first-android-application)
+ 2) [Interactive User Interfaces](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-2-interactive-user-interfaces)
+ 3) [The Activity Lifecycle](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-3-the-activity-lifecycle)
+ 4) [Persisting UI State](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-4-persisting-ui-state)
+ 5) [Debugging Android](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-5-debugging-android)
+ 6) [Testing](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-6-testing)
+ 7) [Your Second Activity](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-7-your-second-activity)
+ 8) [Android SDK Versions and Compatibility](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-8-android-sdk-versions-and-compatibility)
+ 9) [Fragments](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-9-fragments)
+10) [Display Lists with RecyclerView](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-10-display-lists-with-recyclerview)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
@@ -137,6 +139,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 ### Kotin 
 
 - [Class Constructor / Initializer](https://kotlinlang.org/docs/classes.html#constructors)
+- [Class Inheritance](https://kotlinlang.org/docs/inheritance.html)
 - [Property Delegation](https://kotlinlang.org/docs/delegated-properties.html) using the `by` keyword
 - [Lazy Initialized Properties](https://kotlinlang.org/docs/properties.html#late-initialized-properties-and-variables)
 - [Computed Properties / Getters & Setters](https://kotlinlang.org/docs/properties.html#getters-and-setters)
@@ -149,6 +152,8 @@ This file outlines some of the Kotlin and Android features introduced in each ch
         - extended the ViewModel class
         - invoked the `viewModels()` property delegate
     - do not reference the Activity or its Views in the ViewModel
+- [ViewModel Dependencies](https://developer.android.com/jetpack/androidx/releases/lifecycle)
+    - added dependency to build.gradle
 - [ViewModel Lifecycle](https://developer.android.com/topic/libraries/architecture/viewmodel#lifecycle)
     - used the `onCleared()` method to display a message
 - [ViewModel Scope](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-apis)
@@ -210,6 +215,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 ### Android
 
+- [Create New Test](https://developer.android.com/studio/test/test-in-android-studio#create-new-tests)
 - [Testing Overview](https://developer.android.com/training/testing)
     - [Fundamentals](https://developer.android.com/training/testing/fundamentals)
     - [What to Test](https://developer.android.com/training/testing/fundamentals/what-to-test)
@@ -324,13 +330,114 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Render Effect API](https://developer.android.com/reference/android/graphics/RenderEffect)
     - used to apply a blur effect to the cheat button
 
-### Challenge #11: Reporting the Device's Android Version
+### Challenge #12: Reporting the Device's Android Version
 
 - used the `Build.VERSION.SDK_INT` constant to get the current API
 - used a formatted string resource to display the current API version with additional text
 
-### Challenge #10: Limited Cheating
+### Challenge #13: Limited Cheating
 
 - added a cheat button and text views displaying cheat counts to the MainActivity
 - added cheat count variables and a method to update them within the `QuizViewModel`
 - applied updates to the MainActivity cheat counts and cheat button in the CheatActivity result callback
+
+
+## Chapter #9: Fragments
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
+
+### Kotlin
+
+- [Named Arguments](https://kotlinlang.org/docs/functions.html#named-arguments)
+    - used when instantiating a single crime object from the `Crime` constructor
+- [Data Class Copy](https://kotlinlang.org/docs/data-classes.html#copying)
+    - updated the value of a `Crime` object using itself `copy` method.
+- [checkNotNull](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/check-not-null.html)
+    - used for the non-null version of the viewBinding reference within the fragment class
+
+### Android
+
+- [Fragments Overview](https://developer.android.com/guide/fragments?hl=en)
+    - [create a fragment](https://developer.android.com/guide/fragments/create?hl=en)
+        - added fragment dependency to build.gradle (module)
+- [Fragment Lifecyle](https://developer.android.com/guide/fragments/lifecycle?hl=en)
+    - performed various operations within fragment lifecyle methods
+    - [onCreate()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreate(android.os.Bundle))
+    - [onCreateView()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle))
+        - generated the layout using a View Binding
+        - [layoutInflator](https://developer.android.com/reference/android/view/LayoutInflater.html)
+        - [viewGroup](https://developer.android.com/reference/android/view/ViewGroup.html)
+    - [onViewCreated()](https://developer.android.com/reference/androidx/fragment/app/Fragment#onViewCreated(android.view.View,android.os.Bundle))
+        - performed actions after the views bacome available 
+- [FragmentContainerView](https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentContainerView?hl=en)
+    - created a container to host fragments from the main CriminalIntent activity's layout
+- [Fragment Manager](https://developer.android.com/guide/fragments/fragmentmanager?hl=en)
+    - controls fragment lifecycle from the hosting activity
+    - used to manually load a fragment vs using the FragmentContainerView's `android:name` attribute
+    - [supportFragmentManager](https://developer.android.com/guide/fragments/fragmentmanager#access)
+        - used the `supportFragmentManager` to access CriminalIntent activity fragment manager
+    - [Fragment Transactions](https://developer.android.com/guide/fragments/transactions?hl=en)
+        - performed a fragment transaction to load the CrimeDetailFragment into the FragmentContainerView
+    - [Fragment Backstack](https://developer.android.com/guide/fragments/fragmentmanager#perform)
+- [ViewBinding In Fragments](https://developer.android.com/topic/libraries/view-binding#fragments)
+    - obtained a nullable reference to the view binding
+    - nulled the binding referenec in the `onDestroyView` method
+- [Style and Themes Overview](https://developer.android.com/develop/ui/views/theming/themes)
+    - [XML andtroid:textApperance attribute](https://developer.android.com/develop/ui/views/theming/themes#textappearance)
+        - used to assign a Material Design style to the fragment text elements
+- [Autofill Overview](https://developer.android.com/guide/topics/text/autofill)
+    - [XML android:importantForAutofill attribute](https://developer.android.com/guide/topics/text/autofill-optimize#important)
+        - used to disable autofill on the fragments EditView
+- [EditView Hint](https://developer.android.com/reference/android/widget/TextView#attr_android:hint)
+    - used to show a hint for the fragment's EditView
+- [TextView.doOnTextChanged()](https://developer.android.com/reference/kotlin/androidx/core/widget/package-summary#(android.widget.TextView).doOnTextChanged(kotlin.Function4))
+    - used this Kotlin Extension function to update the title held within a `Crime` object
+
+### Java
+
+- [UUID](https://docs.oracle.com/javase/7/docs/api/java/util/UUID.html)
+    - used to assign a unique ID to each `Crime` class object
+- [Date]( https://docs.oracle.com/javase/8/docs/api/java/util/Date.html)
+    - used to assign a date to each `Crime` class object
+
+
+### Challenge #14: Testing with FragmentScenario
+
+- [Fragnent Testing Overview](https://developer.android.com/guide/fragments/test)
+    - added dependency to use `FragmentScenario`
+    - [google issuetracker](https://issuetracker.google.com/issues/128612536)
+        - resolved issue with non-functioning fragment test
+- [FragmentScenario](https://developer.android.com/reference/kotlin/androidx/fragment/app/testing/FragmentScenario?hl=en)
+    - used to drive CrimeDetailFragment's lifecyle in an instrumentation test
+
+
+## Chapter #10: Display Lists with RecyclerView
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
+
+### Kotlin
+
+- [Collections: mutableListOf](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html)
+    - used to create a mutable list of `Crime` objects in the ViewModel
+- [Strings](https://kotlinlang.org/docs/strings.html)
+    - [string template](https://kotlinlang.org/docs/strings.html)
+        - used to evaluate code and concatenate the result to a string
+- [Abstract Method](https://kotlinlang.org/docs/classes.html#abstract-classes)
+    - used in challenge 14 to pass unique ViewHolder objects to the same adapter based on list item view type
+
+### Android
+
+- [RecyclerView Overview](https://developer.android.com/develop/ui/views/layout/recyclerview?hl=en)
+    - created a recyclerview to list crimes
+    - [layout manager](https://developer.android.com/develop/ui/views/layout/recyclerview?hl=en#plan-your-layout)
+        - used to create a vertical list of items within the recyclerview
+    - [viewHolder and adapter](https://developer.android.com/develop/ui/views/layout/recyclerview?hl=en#implement-adapter)
+        - used to create and display the UI for each element in the recyclerview
+- [RecyclerView Dependencies](https://developer.android.com/jetpack/androidx/releases/recyclerview?hl=en#declaring_dependencies)
+    - added dependencies to build.gradle
+- [RecyclerView Reference](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView?hl=en)
+- [Customize RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview-custom?hl=en)
+    - applied the RecyclerView LinearLayout
+- [RecyclerView getItemViewType()](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.Adapter?hl=en#getItemViewType(int))
+    - used to generate a different item view based on the data
+- [RecyclerView ListAdapter](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/ListAdapter)
+    - researched an efficient method to update a RecyclerView without re-creating the entire list
+

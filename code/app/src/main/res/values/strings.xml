@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android Programming - Big Nerd Ranch Guide</string>
+    <string name="app_name">Android Programming</string>
 
     <!--*******************************************************************************************
     *
@@ -32,4 +32,15 @@
 
     <string name="cheated_count">Cheated: %1$d times</string>
     <string name="cheats_remaining">Cheats Left: %1$d</string>
+
+    <!--*******************************************************************************************
+    *
+    * Criminal Intent App
+    *
+    ********************************************************************************************-->
+    <string name="crime_title_hint">Enter a title for the crime.</string>
+    <string name="crime_title_label">Title</string>
+    <string name="crime_details_label">Details</string>
+    <string name="crime_solved_label">Solved</string>
+
 </resources>

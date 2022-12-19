@@ -9,6 +9,7 @@ import androidx.annotation.StringRes
 import androidx.activity.viewModels
 import com.c0deblack.bignerdranch.androidprogramming.R
 import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch07LayoutChallenge10Binding
+import com.c0deblack.bignerdranch.ch07.QuizViewModel
 import com.google.android.material.snackbar.Snackbar
 
 /***************************************************************************************************
@@ -20,26 +21,19 @@ private const val TAG = "MainActivity"
  * Main Activity for the GeoQuiz App.
  **************************************************************************************************/
 class MainActivity : AppCompatActivity() {
-/***************************************************************************************************
- * View Binding
- * Reference to the View Binding object. Gives access to all layout elements with an ID attribute.
- **************************************************************************************************/
+    // --- reference to the View Binding object. Gives access to all layout elements with an ID
+    // --- attribute.
     private lateinit var binding: Ch07LayoutChallenge10Binding
-/***************************************************************************************************
-* ViewModel
- * Create a reference to the QuizViewModel and invoke the viewModels() property delegate.
- **************************************************************************************************/
+
+    // --- create a reference to the QuizViewModel and invoke the viewModels() property delegate.
     private val quizViewModel: QuizViewModel by viewModels()
-/***************************************************************************************************
-* Answer Button State
-* This variable is used to keep track of the state of the answer  (true/false) buttons.
-**************************************************************************************************/
+
+    // --- This variable is used to keep track of the state of the answer  (true/false) buttons.
     private var buttonState = true
-/***************************************************************************************************
- * Number Correct
- * Keeps track of the number of correctly answered questions. Used to get the final score %.
- **************************************************************************************************/
+
+    // --- keeps track of the number of correctly answered questions. Used to get the final score %.
     private var numCorrect = 0f
+
 /***************************************************************************************************
  * Create Activity Launcher
  * Used to handle the result of a launched activity. Uses [registerForActivityResult] to obtain an
@@ -52,34 +46,24 @@ class MainActivity : AppCompatActivity() {
         quizViewModel.isCheater =
             result.data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
     }
-/*################################################################################################*/
-// START onCreate(savedInstanceState: Bundle?)
-/*################################################################################################*/
+/***************************************************************************************************
+ * Override [AppCompatActivity.onCreate] and perform initialization operations.
+ **************************************************************************************************/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-/***************************************************************************************************
-* Logging onCreate
-***************************************************************************************************/
+
+        // --- logging onCreate
         Log.d(TAG, "onCreate(Bundle?) called")
-/***************************************************************************************************
- * Inflate the XML
- * Inflate the chapter02_activity_main.xml resource using the View Binding
- ***************************************************************************************************/
+
+        // --- inflate the chapter02_activity_main.xml resource using the View Binding
         binding = Ch07LayoutChallenge10Binding.inflate(layoutInflater)
         setContentView(binding.root)
-/***************************************************************************************************
- * Log ViewModel
- * Initializing the quizViewModel and logging its value in one line. The value is lazy initialized.
- ***************************************************************************************************/
+
+        // --- Initializing the quizViewModel and logging its value in one line. The value is lazy initialized.
         Log.d(TAG, "Got a QuizViewModel: $quizViewModel")
-/***************************************************************************************************
- * Answer Buttons Events
- * Set the on click listeners for the two buttons. When a button is clicked a corresponding
- * `Snackbar` message is displayed to the user.
- *
- * Challenge #4: Prevent Repeat Answers
- *      Added the disableButtons function call
- **************************************************************************************************/
+
+        // --- set the on click listeners for the two buttons. When a button is clicked a corresponding
+        // --- snackbar message is displayed to the user.
         binding.trueButton.setOnClickListener {
             quizViewModel.setQuestionAnswered()
             setAnswerButtonState()
@@ -90,45 +74,34 @@ class MainActivity : AppCompatActivity() {
             setAnswerButtonState()
             checkAnswer(false)
         }
-/***************************************************************************************************
- * Next Button Event
- * When the next button is clicked, currentIndex increments by 1. It resets back to 0 if it has
- * reached the end of the Questions list.
- *
- * Challenge #4: Prevent Repeat Answers
- *      Added enableButtons function call
- **************************************************************************************************/
+
+        // --- when the next button is clicked, currentIndex increments by 1.
+        // --- it resets back to 0 if it has reached the end of the Questions list.
         binding.nextButton.setOnClickListener {
             quizViewModel.moveToNext()
             updateQuestions()
             setAnswerButtonState()
         }
-/***************************************************************************************************
- * TextView As Next Button
- * Challenge #2: Add a Listener to the TextView
- *      Add "Next" feature to the TextView as on onClick Event
- **************************************************************************************************/
+
+        // --- Challenge #2: Add a Listener to the TextView
+        // --- add "Next" feature to the TextView as on onClick Event
         binding.questionTextView.setOnClickListener{
             quizViewModel.moveToNext()
             updateQuestions()
             setAnswerButtonState()
         }
-/***************************************************************************************************
- * Previous Button
- * Challenge #3: Adding a Previous Button
- **************************************************************************************************/
+
+        // --- Challenge #3: Adding a Previous Button
+        // --- add a previous button
         binding.previousButton.setOnClickListener {
             quizViewModel.moveToPrevious()
             updateQuestions()
             setAnswerButtonState()
         }
-/***************************************************************************************************
- * Cheat Button
- * Listener for the cheat button. Displays the CheatActivity when clicked.
- *
- * See link below for description of this@MainActivity usage
- * @link https://kotlinlang.org/docs/this-expressions.html#qualified-this
- **************************************************************************************************/
+
+        // --- Listener for the cheat button. Displays the CheatActivity when clicked.
+        // --- See link below for description of this@MainActivity usage
+        // --- @link https://kotlinlang.org/docs/this-expressions.html#qualified-this
         binding.cheatButton.setOnClickListener {
             val answerIsTrue = quizViewModel.currentQuestionAnswer
             val intent = CheatActivity.newIntent(
@@ -139,19 +112,11 @@ class MainActivity : AppCompatActivity() {
             //startActivity(intent)
             cheatLauncher.launch(intent)
         }
-/***************************************************************************************************
- * Set Text
- * Set the text in the text view when the view is created.
- **************************************************************************************************/
+
+        // --- set the text in the text view when the view is created.
         this.updateQuestions()
         this.setAnswerButtonState()
     }
-/*################################################################################################*/
-// END onCreate(savedInstanceState: Bundle?)
-/*################################################################################################*/
-/*################################################################################################*/
-// START Logging Lifecycle Methods
-/*################################################################################################*/
     override fun onStart(){
         super.onStart()
         Log.d(TAG, "onStart() called")
@@ -172,9 +137,6 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         Log.d(TAG, "onDestroy() called")
     }
-/*################################################################################################*/
-// END Logging Lifecycle Methods
-/*################################################################################################*/
 /***************************************************************************************************
  * Update Question Text
  * Grabs the currentIndex from the Questions list and sets the text view with its question.
@@ -277,7 +239,4 @@ class MainActivity : AppCompatActivity() {
             enableButtons()
         }
     }
-/*################################################################################################*/
-// END class MainActivity
-/*################################################################################################*/
-}
+} // END MainActivity

@@ -18,24 +18,14 @@ private const val TAG = "MainActivity"
  * Main Activity for the GeoQuiz App.
  **************************************************************************************************/
 class MainActivity : AppCompatActivity() {
-/***************************************************************************************************
- * View Binding
- *
- * Reference to the View Binding object. Gives access to all layout elements with an ID attribute.
- **************************************************************************************************/
+    // --- reference to the View Binding object. Gives access to all layout elements with an ID
+    // --- attribute.
     private lateinit var binding: Ch03LayoutChallenge4Binding
-/***************************************************************************************************
-* Answer Button State
-*
-* This variable is used to keep track of the state of the answer  (true/false) buttons.
-**************************************************************************************************/
+
+    // --- This variable is used to keep track of the state of the answer  (true/false) buttons.
     private var buttonState = true
-/***************************************************************************************************
- * Questions List
- *
- * Each question is an instance of the Question data class. Each question keeps track of the string
- * resource ID and the answer ot he question.
- **************************************************************************************************/
+    // --- each question is an instance of the Question data class. Each question keeps track of the
+    // --- string resource ID and the answer ot he question.
     private val questionBank = listOf(
         Question(R.string.question_australia, true),
         Question(R.string.question_oceans, true),
@@ -44,37 +34,25 @@ class MainActivity : AppCompatActivity() {
         Question(R.string.question_americas, true),
         Question(R.string.question_asia, true)
     )
-/***************************************************************************************************
- * Current Index
- *
- * Keeps track of the index of the current question in the list.
- **************************************************************************************************/
+
+    // --- keeps track of the index of the current question in the list.
     private var currentIndex = 0
-/*################################################################################################*/
-// START onCreate(savedInstanceState: Bundle?)
-/*################################################################################################*/
+
+/***************************************************************************************************
+ * Override [AppCompatActivity.onCreate] and perform initialization operations.
+ **************************************************************************************************/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-/***************************************************************************************************
-* Logging onCreate
-***************************************************************************************************/
-    Log.d(TAG, "onCreate(Bundle?) called")
-/***************************************************************************************************
- * Inflate the XML
- *
- * Inflate the chapter02_activity_main.xml resource using the View Binding
- ***************************************************************************************************/
+
+        // --- logging onCreate
+        Log.d(TAG, "onCreate(Bundle?) called")
+
+        // --- inflate the chapter02_activity_main.xml resource using the View Binding
         binding = Ch03LayoutChallenge4Binding.inflate(layoutInflater)
         setContentView(binding.root)
-/***************************************************************************************************
- * Answer Buttons Events
- *
- * Set the on click listeners for the two buttons. When a button is clicked a corresponding
- * `Snackbar` message is displayed to the user.
- *
- * Challenge #4: Prevent Repeat Answers
- * Added the disableButtons function call
- **************************************************************************************************/
+
+        // --- set the on click listeners for the two buttons. When a button is clicked a corresponding
+        // --- snackbar message is displayed to the user.
         binding.trueButton.setOnClickListener {
             setQuestionAnswered(questionBank[currentIndex])
             setAnswerButtonState()
@@ -85,58 +63,38 @@ class MainActivity : AppCompatActivity() {
             setAnswerButtonState()
             checkAnswer(false)
         }
-/***************************************************************************************************
- * Next Button Event
- *
- * When the next button is clicked, currentIndex increments by 1. It resets back to 0 if it has
- * reached the end of the Questions list.
- *
- * Challenge #4: Prevent Repeat Answers
- * Added enableButtons function call
- **************************************************************************************************/
+
+        // --- when the next button is clicked, currentIndex increments by 1.
+        // --- it resets back to 0 if it has reached the end of the Questions list.
         binding.nextButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size
             updateQuestions()
             setAnswerButtonState()
         }
-/***************************************************************************************************
- * TextView As Next Button
- *
- * Challenge #2: Add a Listener to the TextView
- * Add "Next" feature to the TextView as on onClick Event
- **************************************************************************************************/
+
+        // --- Challenge #2: Add a Listener to the TextView
+        // --- add "Next" feature to the TextView as on onClick Event
         binding.questionTextView.setOnClickListener{
             currentIndex = (currentIndex + 1) % questionBank.size
             updateQuestions()
             setAnswerButtonState()
         }
-/***************************************************************************************************
- * Previous Button
- *
- * Challenge #3: Adding a Previous Button
- **************************************************************************************************/
-    binding.previousButton.setOnClickListener {
-        currentIndex = if (currentIndex == 0){
-            questionBank.size - 1
-        } else {
-            currentIndex - 1
+
+        // --- Challenge #3: Adding a Previous Button
+        // --- add a previous button
+        binding.previousButton.setOnClickListener {
+            currentIndex = if (currentIndex == 0){
+                questionBank.size - 1
+            } else {
+                currentIndex - 1
+            }
+            updateQuestions()
+            setAnswerButtonState()
         }
-        updateQuestions()
-        setAnswerButtonState()
-    }
-/***************************************************************************************************
- * Set Text
- *
- * Set the text in the text view when the view is created.
- **************************************************************************************************/
+
+        // --- set the text in the text view when the view is created.
         this.updateQuestions()
-    }
-/*################################################################################################*/
-// END onCreate(savedInstanceState: Bundle?)
-/*################################################################################################*/
-/*################################################################################################*/
-// START Logging Lifecycle Methods
-/*################################################################################################*/
+    } // END onCreate
 override fun onStart(){
     super.onStart()
     Log.d(TAG, "onStart() called")
@@ -157,9 +115,6 @@ override fun onStart(){
         super.onDestroy()
         Log.d(TAG, "onDestroy() called")
     }
-/*################################################################################################*/
-// END Logging Lifecycle Methods
-/*################################################################################################*/
 /***************************************************************************************************
  * Update Question Text
  *
@@ -242,7 +197,4 @@ override fun onStart(){
             enableButtons()
         }
     }
-/*################################################################################################*/
-// END class MainActivity
-/*################################################################################################*/
 }

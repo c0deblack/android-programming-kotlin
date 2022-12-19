@@ -10,18 +10,12 @@ import com.google.android.material.snackbar.Snackbar
  * Main Activity for the GeoQuiz App.
  **************************************************************************************************/
 class MainActivity : AppCompatActivity() {
-/***************************************************************************************************
- * View Binding
- *
- * Reference to the View Binding object. Gives access to all layout elements with an ID attribute.
- **************************************************************************************************/
+    // --- reference to the View Binding object. Gives access to all layout elements with an ID
+    // --- attribute.
     private lateinit var binding: Ch02LayoutBinding
-/***************************************************************************************************
- * Questions List
- *
- * Each question is an instance of the Question data class. Each question keeps track of the string
- * resource ID and the answer ot he question.
- **************************************************************************************************/
+
+    // --- each question is an instance of the Question data class. Each question keeps track of the
+    // --- string resource ID and the answer ot he question.
     private val questionBank = listOf(
         Question(R.string.question_australia, true),
         Question(R.string.question_oceans, true),
@@ -30,50 +24,38 @@ class MainActivity : AppCompatActivity() {
         Question(R.string.question_americas, true),
         Question(R.string.question_asia, true)
     )
-/***************************************************************************************************
- * Current Index
- *
- * Keeps track of the index of the current question in the list.
- **************************************************************************************************/
+
+    // --- keeps track of the index of the current question in the list.
     private var currentIndex = 0
-/*################################################################################################*/
-// START onCreate(savedInstanceState: Bundle?)
-/*################################################################################################*/
+
+/***************************************************************************************************
+* Override [AppCompatActivity.onCreate] and perform initialization operations.
+**************************************************************************************************/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-/***************************************************************************************************
- * Inflate the XML
- *
- * Inflate the chapter02_activity_main.xml resource using the View Binding
- ***************************************************************************************************/
+
+        // --- inflate the chapter02_activity_main.xml resource using the View Binding
         binding = Ch02LayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
-/***************************************************************************************************
- * onClickListener
- *
- * Set the on click listeners for the two buttons. When a button is clicked a corresponding
- * `Snackbar` message is displayed to the user.
- *
- * When the next button is clicked, currentIndex increments by 1. It resets back to 0 if it has
- * reached the end of the Questions list.
- **************************************************************************************************/
+
+        // --- set the on click listeners for the two buttons. When a button is clicked a corresponding
+        // --- snackbar message is displayed to the user.
         binding.trueButton.setOnClickListener {
             checkAnswer(true)
         }
         binding.falseButton.setOnClickListener {
             checkAnswer(false)
         }
+
+        // --- when the next button is clicked, currentIndex increments by 1.
+        // --- it resets back to 0 if it has reached the end of the Questions list.
         binding.nextButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size
             updateQuestions()
         }
 
         this.updateQuestions()
-    }
-/*################################################################################################*/
-// END onCreate(savedInstanceState: Bundle?)
-/*################################################################################################*/
-
+    } // END onCreate
 /***************************************************************************************************
  * private fun updateQuestions()
  *
@@ -83,9 +65,6 @@ class MainActivity : AppCompatActivity() {
         val questionTextResId = questionBank[currentIndex].textResID
         binding.questionTextView.setText(questionTextResId)
     }
-/*################################################################################################*/
-// END updateQuestions()
-/*################################################################################################*/
 /***************************************************************************************************
  * private fun checkAnswer(Boolean)
  *
@@ -104,7 +83,4 @@ class MainActivity : AppCompatActivity() {
             Snackbar.LENGTH_SHORT
         ).show()
     }
-/*################################################################################################*/
-// END updateQuestions()
-/*################################################################################################*/
 } // END MainActivity
