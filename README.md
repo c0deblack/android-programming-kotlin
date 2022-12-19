@@ -434,4 +434,6 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [RecyclerView Reference](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView?hl=en)
 - [Customize RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview-custom?hl=en)
     - applied the RecyclerView LinearLayout
+- [RecyclerView ListAdapter](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/ListAdapter)
+    - researched an efficient method to update a RecyclerView without re-creating the entire list
 

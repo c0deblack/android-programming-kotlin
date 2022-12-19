@@ -1,10 +1,10 @@
 package com.c0deblack.bignerdranch.ch10
 
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch10LayoutListItemCrimeBinding
+import com.google.android.material.snackbar.Snackbar
 
 /***************************************************************************************************
  * A view holder that provides the view displayed for each item of a [RecyclerView]. The base
@@ -18,8 +18,31 @@ import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch10LayoutListI
 class CrimeHolder (
     val binding: Ch10LayoutListItemCrimeBinding
 ) : RecyclerView.ViewHolder(binding.root) {
-}
+/***************************************************************************************************
+ * Bind crime data to the item view used in the [RecyclerView].
+ * @param crime a single [Crime] instance.
+ **************************************************************************************************/
+    fun bind(crime: Crime) {
+        binding.apply {
+            // --- bind data
+            crimeTitle.text = crime.title
+            crimeDate.text  = crime.date.toString()
 
+            // --- set onClick event if an item in the list is clicked
+            root.setOnClickListener {
+                Snackbar.make(
+                    binding.root,
+                    "${crime.title} clicked!",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+}
+/***************************************************************************************************
+ * The adapter used with the [RecyclerView] displayed in the [CrimeListFragment]'s layout.
+ * * Extends [RecyclerView.Adapter]
+ **************************************************************************************************/
 class CrimeListAdapter (
     private val crimes : List<Crime>
 ): RecyclerView.Adapter<CrimeHolder>() {
@@ -46,12 +69,7 @@ class CrimeListAdapter (
     override fun onBindViewHolder(holder: CrimeHolder, position: Int) {
         val crime = crimes[position]
         // --- bind data from the crime to the view within the viewHolder
-        holder.apply {
-            binding.apply {
-                crimeTitle.text = crime.title
-                crimeDate.text = crime.date.toString()
-            }
-        }
+        holder.bind(crime)
     }
 /***************************************************************************************************
  * Returns the total number of elements in the list to the [RecyclerView].
