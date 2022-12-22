@@ -464,3 +464,8 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - [carousel](https://developer.android.com/develop/ui/views/animations/motionlayout/carousel?hl=en)
 
 ### Challenge #15: Formatting the Date
+
+- [DateFormat](https://developer.android.com/reference/kotlin/android/text/format/DateFormat?hl=en)
+    - used to format a java Date object
+- [Date Character Codes](https://developer.android.com/reference/kotlin/android/text/format/DateFormat?hl=en)
+    - charcter codes used in the DateFormat `format()` method to display a user-friendly date
