@@ -17,6 +17,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
  8) [Android SDK Versions and Compatibility](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-8-android-sdk-versions-and-compatibility)
  9) [Fragments](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-9-fragments)
 10) [Display Lists with RecyclerView](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-10-display-lists-with-recyclerview)
+11) [Create User Interfaces with Layouts and Views](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-11-creating-user-interfaces-with-layouts-and-views)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
@@ -446,8 +447,6 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 ## Chapter #11: Creating User Interfaces with Layouts and Views
 [go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
-
-### Kotlin
 
 ### Android
 
