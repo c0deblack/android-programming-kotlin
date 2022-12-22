@@ -17,6 +17,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
  8) [Android SDK Versions and Compatibility](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-8-android-sdk-versions-and-compatibility)
  9) [Fragments](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-9-fragments)
 10) [Display Lists with RecyclerView](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-10-display-lists-with-recyclerview)
+11) [Create User Interfaces with Layouts and Views](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-11-creating-user-interfaces-with-layouts-and-views)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
@@ -436,8 +437,35 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [RecyclerView Reference](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView?hl=en)
 - [Customize RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview-custom?hl=en)
     - applied the RecyclerView LinearLayout
-- [RecyclerView getItemViewType()](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.Adapter?hl=en#getItemViewType(int))
-    - used to generate a different item view based on the data
 - [RecyclerView ListAdapter](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/ListAdapter)
     - researched an efficient method to update a RecyclerView without re-creating the entire list
 
+### Challenge #14: RecyclerView View Types
+
+- [RecyclerView getItemViewType()](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.Adapter?hl=en#getItemViewType(int))
+    - used to generate a different item view based on the data
+
+## Chapter #11: Creating User Interfaces with Layouts and Views
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
+
+### Android
+
+- [Constraint Layout Overview](https://developer.android.com/develop/ui/views/layout/constraint-layout?hl=en)
+- [Layout Editor](https://developer.android.com/studio/write/layout-editor?hl=en)
+    - [convert a view or layout](https://developer.android.com/studio/write/layout-editor?hl=en#convert-view)
+        - converted a LinearLayout to a ConstrainLayout
+    - [edit view attributes](https://developer.android.com/studio/write/layout-editor?hl=en#edit-properties)
+        - configured view attributes including height, width, margins, and constraints
+- [Styles and Themes](https://developer.android.com/develop/ui/views/theming/themes?hl=en)
+    - applied material design themes
+- [MotionLayout Overview](https://developer.android.com/develop/ui/views/animations/motionlayout?hl=en)
+    - learned about creating animations
+    - [various examples](https://developer.android.com/develop/ui/views/animations/motionlayout/examples?hl=en)
+    - [carousel](https://developer.android.com/develop/ui/views/animations/motionlayout/carousel?hl=en)
+
+### Challenge #15: Formatting the Date
+
+- [DateFormat](https://developer.android.com/reference/kotlin/android/text/format/DateFormat?hl=en)
+    - used to format a java Date object
+- [Date Character Codes](https://developer.android.com/reference/kotlin/android/text/format/DateFormat?hl=en)
+    - charcter codes used in the DateFormat `format()` method to display a user-friendly date
