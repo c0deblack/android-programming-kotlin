@@ -451,4 +451,17 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 ### Android
 
+- [Constraint Layout Overview](https://developer.android.com/develop/ui/views/layout/constraint-layout?hl=en)
+- [Layout Editor](https://developer.android.com/studio/write/layout-editor?hl=en)
+    - [convert a view or layout](https://developer.android.com/studio/write/layout-editor?hl=en#convert-view)
+        - converted a LinearLayout to a ConstrainLayout
+    - [edit view attributes](https://developer.android.com/studio/write/layout-editor?hl=en#edit-properties)
+        - configured view attributes including height, width, margins, and constraints
+- [Styles and Themes](https://developer.android.com/develop/ui/views/theming/themes?hl=en)
+    - applied material design themes
+- [MotionLayout Overview](https://developer.android.com/develop/ui/views/animations/motionlayout?hl=en)
+    - learned about creating animations
+    - [various examples](https://developer.android.com/develop/ui/views/animations/motionlayout/examples?hl=en)
+    - [carousel](https://developer.android.com/develop/ui/views/animations/motionlayout/carousel?hl=en)
+
 ### Challenge #15: Formatting the Date

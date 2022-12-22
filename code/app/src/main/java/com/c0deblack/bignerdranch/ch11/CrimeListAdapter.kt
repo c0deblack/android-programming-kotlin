@@ -1,6 +1,7 @@
 package com.c0deblack.bignerdranch.ch11
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
@@ -51,6 +52,13 @@ class CrimeHolder(
                     "${crime.title} clicked!",
                     Snackbar.LENGTH_SHORT
                 ).show()
+            }
+
+            // --- show the handcuff image if the crime is solved
+            crimeSolved.visibility = if (crime.isSolved) {
+                View.VISIBLE
+            } else {
+                View.GONE
             }
         }
     }
