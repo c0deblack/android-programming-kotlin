@@ -1,7 +1,6 @@
 package com.c0deblack.bignerdranch.ch12
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch12LayoutFragmentCrimeListBinding
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-private const val TAG = "CrimeListFragment"
 /***************************************************************************************************
  * Crime List Fragment.
  * Contains the list of crimes shown to the user.
@@ -29,18 +26,6 @@ class CrimeListFragment : Fragment() {
 
     // --- create a reference to the viewModel
     private val crimeListViewModel: CrimeViewModel by viewModels()
-
-    // --- create reference to the coroutine jobs object
-    private var job: Job? = null
-/***************************************************************************************************
-* Initialize the [CrimeListFragment].
- * * Overrides [Fragment.onCreate].
- **************************************************************************************************/
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        // --- log the number of crimes when the fragment is created
-        Log.d(TAG, "Total crimes: ${crimeListViewModel.crimes.size}")
-    }
 /***************************************************************************************************
  * Inflate the view used with the [CrimeListFragment].
  * * Overrides [Fragment.onCreateView]
@@ -49,7 +34,7 @@ class CrimeListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // --- inflate the fragment's layout
         _binding = Ch12LayoutFragmentCrimeListBinding.inflate(
             inflater,
@@ -60,18 +45,18 @@ class CrimeListFragment : Fragment() {
         // --- assign a layout manager to the RecyclerView
         binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
 
-        // --- assign the adapter to the recycler view
-        val crimes = crimeListViewModel.crimes
-        val adapter = CrimeListAdapter(crimes)
-        binding.crimeRecyclerView.adapter = adapter
-
         // --- return the root view that is displayed
         return binding.root
     }
+/***************************************************************************************************
+ * Hook up listeners / set data within views.
+ * * Overrides [Fragment.onViewCreated]
+ **************************************************************************************************/
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun onStart() {
-        super.onStart()
-        job = viewLifecycleOwner.lifecycleScope.launch {
+        // --- use a coroutine to load data from the view model and update the recycler view
+        viewLifecycleOwner.lifecycleScope.launch{
             val crimes = crimeListViewModel.loadCrimes()
             binding.crimeRecyclerView.adapter = CrimeListAdapter(crimes)
         }
@@ -83,6 +68,5 @@ class CrimeListFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-        job?.cancel()
     }
 }

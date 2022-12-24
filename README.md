@@ -496,6 +496,8 @@ This file outlines some of the Kotlin and Android features introduced in each ch
         - launched a coroutine within the scope of a viewModel
     - [lifecycle scope](https://developer.android.com/topic/libraries/architecture/coroutines#lifecyclescope)
         - scopes available for Activity and Fragment classes
+    - [repeatOnLifecycle](https://developer.android.com/topic/libraries/architecture/coroutines#restart)
+        - used to execute a coroutine when a specificy lifecycle state is encountered without manual `Job` cleanup
 - [Coroutine Jobs](https://developer.android.com/kotlin/coroutines/coroutines-adv#job)
     - used to cancel a coroutine
 
