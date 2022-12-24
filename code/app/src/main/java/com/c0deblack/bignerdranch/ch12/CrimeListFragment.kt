@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch12LayoutFragmentCrimeListBinding
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 private const val TAG = "CrimeListFragment"
 /***************************************************************************************************
@@ -27,6 +30,8 @@ class CrimeListFragment : Fragment() {
     // --- create a reference to the viewModel
     private val crimeListViewModel: CrimeViewModel by viewModels()
 
+    // --- create reference to the coroutine jobs object
+    private var job: Job? = null
 /***************************************************************************************************
 * Initialize the [CrimeListFragment].
  * * Overrides [Fragment.onCreate].
@@ -63,6 +68,14 @@ class CrimeListFragment : Fragment() {
         // --- return the root view that is displayed
         return binding.root
     }
+
+    override fun onStart() {
+        super.onStart()
+        job = viewLifecycleOwner.lifecycleScope.launch {
+            val crimes = crimeListViewModel.loadCrimes()
+            binding.crimeRecyclerView.adapter = CrimeListAdapter(crimes)
+        }
+    }
 /***************************************************************************************************
  * Null the reference to the viewBinding when the fragment is destroyed to free unused memory.
  * * Overrides [Fragment.onDestroy]
@@ -70,5 +83,6 @@ class CrimeListFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        job?.cancel()
     }
 }

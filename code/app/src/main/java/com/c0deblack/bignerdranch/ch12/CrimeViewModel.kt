@@ -14,21 +14,32 @@ import java.util.*
 class CrimeViewModel : ViewModel() {
     val crimes = mutableListOf<Crime>()
     init {
+        Log.d("viewModel", "init started")
         viewModelScope.launch {
-            // --- generate a random list of 100 crimes
             Log.d("viewModel", "Coroutine launched")
-            delay(5000)
-            for (i in 0 until 100) {
-                val crime = Crime (
-                    id = UUID.randomUUID(),
-                    title = "Crime $i",
-                    date = Date(),
-                    isSolved = i % 2 == 0,
-                    requiresPolice = i % 5 == 0
-                )
-                crimes += crime
-                Log.d("viewModel", "Coroutine finished")
-            }
+
+            crimes += loadCrimes()
+            Log.d("viewModel", "Coroutine finished")
         }
+    }
+
+/***************************************************************************************************
+ * Load Crimes in Coroutine.
+ **************************************************************************************************/
+    suspend fun loadCrimes(): List<Crime> {
+        val result = mutableListOf<Crime>()
+        // --- generate a random list of 100 crimes
+        delay(5000)
+        for (i in 0 until 100) {
+            val crime = Crime (
+                id = UUID.randomUUID(),
+                title = "Crime $i",
+                date = Date(),
+                isSolved = i % 2 == 0,
+                requiresPolice = i % 5 == 0
+            )
+            result += crime
+        }
+        return result
     }
 }

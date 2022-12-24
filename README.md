@@ -484,13 +484,20 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Types of Asynchronous Work](https://developer.android.com/guide/background/asynchronous)
 - [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines)
     - [dependencies](https://developer.android.com/kotlin/coroutines#dependency)
+        - added dependencies for coroutines and lifecycle scope
     - [start a coroutine](https://developer.android.com/kotlin/coroutines/coroutines-adv#start)
-        - used the `CoroutineScope.launch()` method to build a coroutine
+        - used the coroutine builder `launch()` method to build a coroutine
+        - created a suspend function to run within the launch method
     - [coroutine scope](https://developer.android.com/kotlin/coroutines/coroutines-adv#concepts)
         - launched coroutine within the coroutine scope
+- [Lifecycle Aware Components](https://developer.android.com/topic/libraries/architecture/coroutines#lifecycle-aware)
+    - used `viewLifecycleScope.lifecyleScope.launch()` to launch coroutine within a Fragment class
     - [viewModelScope](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope)
         - launched a coroutine within the scope of a viewModel
-
+    - [lifecycle scope](https://developer.android.com/topic/libraries/architecture/coroutines#lifecyclescope)
+        - scopes available for Activity and Fragment classes
+- [Coroutine Jobs](https://developer.android.com/kotlin/coroutines/coroutines-adv#job)
+    - used to cancel a coroutine
 
 ### Challenge #16: Addressing the Schema Warning
 

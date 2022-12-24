@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch12LayoutFragmentCrimeDetailBinding
 import java.util.*
 
@@ -26,6 +27,9 @@ class CrimeDetailFragment : Fragment() {
         get() = checkNotNull(_binding) {
             "Cannot access binding because it is null. Is the view visible?"
         }
+
+    // --- create a reference to the viewModel
+    private val crimeListViewModel: CrimeViewModel by viewModels()
 /***************************************************************************************************
  * The onCreate Method.
  * Initialize the fragments private variables. A private instance of a [Crime] object is

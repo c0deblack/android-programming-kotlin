@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch11LayoutChallenge15FragmentCrimeListBinding
+import kotlinx.coroutines.Job
 
 private const val TAG = "CrimeListFragment"
 /***************************************************************************************************
@@ -26,7 +28,6 @@ class CrimeListFragment : Fragment() {
 
     // --- create a reference to the viewModel
     private val crimeListViewModel: CrimeViewModel by viewModels()
-
 /***************************************************************************************************
 * Initialize the [CrimeListFragment].
  * * Overrides [Fragment.onCreate].
