@@ -503,7 +503,17 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Room Database Overview](https://developer.android.com/training/data-storage/room?hl=en)
     - [dependencies](https://developer.android.com/training/data-storage/room?hl=en#setup)
         - added kapt (Kotlin annotation processing tool), room-runtime, and room-ktx, and room-compiler
-    
+- [Room DB Entity Class](https://developer.android.com/training/data-storage/room/defining-data?hl=en)    
+    - annotated the Crime model class as an entity
+- [Room Database Class](https://developer.android.com/training/data-storage/room?hl=en#database)
+    - created an abstract database class and annotated it with `@Database()`
+    - passed in `Crime::class` as an entity to the `@Database` annotation
+- [Room Type Converter](https://developer.android.com/training/data-storage/room?hl=en#database)
+    - converted from the `Date` type to a Long
+- [Room Data Access Object(DAO)](https://developer.android.com/training/data-storage/room/accessing-data?hl=en)
+    - created an interface that provides annotated functions that will access data in database
+    - [query methods](https://developer.android.com/training/data-storage/room/accessing-data?hl=en#query)
+        - used to create an SQLite `SELECT` statement
 
 ### Challenge #16: Addressing the Schema Warning
 

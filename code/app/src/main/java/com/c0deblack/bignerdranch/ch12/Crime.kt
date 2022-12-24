@@ -1,13 +1,16 @@
 package com.c0deblack.bignerdranch.ch12
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.util.UUID
 import java.util.Date
 
 /***************************************************************************************************
  * Data class used to represent a single crime object.
  **************************************************************************************************/
+@Entity
 data class Crime(
-    val id: UUID,
+    @PrimaryKey val id: UUID,
     val title: String,
     val date: Date,
     val isSolved: Boolean,
