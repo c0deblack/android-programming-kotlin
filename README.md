@@ -500,6 +500,10 @@ This file outlines some of the Kotlin and Android features introduced in each ch
         - used to execute a coroutine when a specificy lifecycle state is encountered without manual `Job` cleanup
 - [Coroutine Jobs](https://developer.android.com/kotlin/coroutines/coroutines-adv#job)
     - used to cancel a coroutine
+- [Room Database Overview](https://developer.android.com/training/data-storage/room?hl=en)
+    - [dependencies](https://developer.android.com/training/data-storage/room?hl=en#setup)
+        - added kapt (Kotlin annotation processing tool), room-runtime, and room-ktx, and room-compiler
+    
 
 ### Challenge #16: Addressing the Schema Warning
 
