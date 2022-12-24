@@ -469,3 +469,28 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - used to format a java Date object
 - [Date Character Codes](https://developer.android.com/reference/kotlin/android/text/format/DateFormat?hl=en)
     - charcter codes used in the DateFormat `format()` method to display a user-friendly date
+
+## Chapter #12: Coroutines and Databases
+[go back to top](https://github.com/c0deblack/android-programming-kotlin/tree/development#table-of-contents)
+
+### Kotlin 
+
+- [Coroutinesi Overview](https://kotlinlang.org/docs/coroutines-overview.html)
+    - [your first coroutine](https://kotlinlang.org/docs/coroutines-basics.html#your-first-coroutine)
+
+### Android
+
+- [Background Work Overview](https://developer.android.com/guide/background)
+- [Types of Asynchronous Work](https://developer.android.com/guide/background/asynchronous)
+- [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines)
+    - [dependencies](https://developer.android.com/kotlin/coroutines#dependency)
+    - [start a coroutine](https://developer.android.com/kotlin/coroutines/coroutines-adv#start)
+        - used the `CoroutineScope.launch()` method to build a coroutine
+    - [coroutine scope](https://developer.android.com/kotlin/coroutines/coroutines-adv#concepts)
+        - launched coroutine within the coroutine scope
+    - [viewModelScope](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope)
+        - launched a coroutine within the scope of a viewModel
+
+
+### Challenge #16: Addressing the Schema Warning
+
