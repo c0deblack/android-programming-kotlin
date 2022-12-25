@@ -475,8 +475,10 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 ### Kotlin 
 
-- [Coroutinesi Overview](https://kotlinlang.org/docs/coroutines-overview.html)
+- [Coroutines Overview](https://kotlinlang.org/docs/coroutines-overview.html)
     - [your first coroutine](https://kotlinlang.org/docs/coroutines-basics.html#your-first-coroutine)
+- [Class Constructors](https://kotlinlang.org/docs/classes.html#secondary-constructors)
+    - defined the CrimeRepository with a private constructor in order to use a singleton pattern
 
 ### Android
 
@@ -490,6 +492,8 @@ This file outlines some of the Kotlin and Android features introduced in each ch
         - created a suspend function to run within the launch method
     - [coroutine scope](https://developer.android.com/kotlin/coroutines/coroutines-adv#concepts)
         - launched coroutine within the coroutine scope
+    - [Coroutine Jobs](https://developer.android.com/kotlin/coroutines/coroutines-adv#job)
+        - used to cancel a coroutine
 - [Lifecycle Aware Components](https://developer.android.com/topic/libraries/architecture/coroutines#lifecycle-aware)
     - used `viewLifecycleScope.lifecyleScope.launch()` to launch coroutine within a Fragment class
     - [viewModelScope](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope)
@@ -498,8 +502,6 @@ This file outlines some of the Kotlin and Android features introduced in each ch
         - scopes available for Activity and Fragment classes
     - [repeatOnLifecycle](https://developer.android.com/topic/libraries/architecture/coroutines#restart)
         - used to execute a coroutine when a specificy lifecycle state is encountered without manual `Job` cleanup
-- [Coroutine Jobs](https://developer.android.com/kotlin/coroutines/coroutines-adv#job)
-    - used to cancel a coroutine
 - [Room Database Overview](https://developer.android.com/training/data-storage/room?hl=en)
     - [dependencies](https://developer.android.com/training/data-storage/room?hl=en#setup)
         - added kapt (Kotlin annotation processing tool), room-runtime, and room-ktx, and room-compiler
@@ -508,12 +510,20 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Room Database Class](https://developer.android.com/training/data-storage/room?hl=en#database)
     - created an abstract database class and annotated it with `@Database()`
     - passed in `Crime::class` as an entity to the `@Database` annotation
+    - pre-populated the database using the `createFromAsset` function
 - [Room Type Converter](https://developer.android.com/training/data-storage/room?hl=en#database)
     - converted from the `Date` type to a Long
 - [Room Data Access Object(DAO)](https://developer.android.com/training/data-storage/room/accessing-data?hl=en)
     - created an interface that provides annotated functions that will access data in database
     - [query methods](https://developer.android.com/training/data-storage/room/accessing-data?hl=en#query)
         - used to create an SQLite `SELECT` statement
+- [Repository Pattern Codelab](https://kotlinlang.org/docs/classes.html#secondary-constructors)
+    - used a repository as a single source of data
+    - initialized the Room database in the repository
+- [Application Class](https://developer.android.com/reference/android/app/Application)
+    - exteded to create the `CriminalIntentApplication` class
+        - initializes the repository when the application begins
+        - provided the class name to the `android:name` attribute in the AndroidManifest top-level `<application>` section
 
 ### Challenge #16: Addressing the Schema Warning
 

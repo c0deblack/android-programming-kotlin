@@ -4,6 +4,10 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
+/***************************************************************************************************
+ * Database class used with the Room API.
+ * * Overrides [RoomDatabase].
+ **************************************************************************************************/
 @Database(entities = [ Crime::class ], version = 1)
 @TypeConverters(CrimeTypeConverter::class)
 abstract class CrimeDatabase : RoomDatabase() {
