@@ -19,6 +19,7 @@ class CrimeRepository private constructor(context: Context) {
             CrimeDatabase::class.java,
             DATABASE_NAME
         )
+        //.fallbackToDestructiveMigration()
         .createFromAsset(DATABASE_NAME)
         .build()
 
@@ -37,6 +38,7 @@ class CrimeRepository private constructor(context: Context) {
  **************************************************************************************************/
         fun initialize(context: Context) {
             if (INSTANCE == null) {
+                //context.getDatabasePath(DATABASE_NAME).delete()
                 INSTANCE = CrimeRepository(context)
             }
         }

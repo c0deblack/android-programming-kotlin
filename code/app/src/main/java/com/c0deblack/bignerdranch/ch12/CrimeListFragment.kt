@@ -1,6 +1,7 @@
 package com.c0deblack.bignerdranch.ch12
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,6 +59,7 @@ class CrimeListFragment : Fragment() {
         // --- use a coroutine to load data from the view model and update the recycler view
         viewLifecycleOwner.lifecycleScope.launch{
             val crimes = crimeListViewModel.loadCrimes()
+            Log.d("CrimeListFragment", "Number of crimes = " + crimes.size.toString())
             binding.crimeRecyclerView.adapter = CrimeListAdapter(crimes)
         }
     }

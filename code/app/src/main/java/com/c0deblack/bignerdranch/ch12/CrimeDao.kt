@@ -10,10 +10,10 @@ import java.util.UUID
 @Dao
 interface CrimeDao {
     // --- get all the crimes
-    @Query("SELECT * FROM crime")
+    @Query("SELECT * FROM Crime")
     suspend fun getCrimes(): List<Crime>
 
     // --- get a single crime based on its UUID
-    @Query("SELECT * FROM crime WHERE id=(:id)")
+    @Query("SELECT * FROM Crime WHERE id=(:id)")
     suspend fun getCrime(id: UUID) : Crime
 }
