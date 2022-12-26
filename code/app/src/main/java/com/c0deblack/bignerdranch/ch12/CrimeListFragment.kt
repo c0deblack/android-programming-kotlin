@@ -1,4 +1,4 @@
-package com.c0deblack.bignerdranch.ch11_challenge15
+package com.c0deblack.bignerdranch.ch12
 
 import android.os.Bundle
 import android.util.Log
@@ -9,10 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch11LayoutChallenge15FragmentCrimeListBinding
-import kotlinx.coroutines.Job
+import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch12LayoutFragmentCrimeListBinding
+import kotlinx.coroutines.launch
 
-private const val TAG = "CrimeListFragment"
 /***************************************************************************************************
  * Crime List Fragment.
  * Contains the list of crimes shown to the user.
@@ -20,7 +19,7 @@ private const val TAG = "CrimeListFragment"
 class CrimeListFragment : Fragment() {
     // --- create a nullable backing variable used for the fragment's viewBinding
     // --- also provide a non-null reference to the binding
-    private var _binding: Ch11LayoutChallenge15FragmentCrimeListBinding? = null
+    private var _binding: Ch12LayoutFragmentCrimeListBinding? = null
     private val binding
         get() = checkNotNull(_binding) {
             "Cannot access binding because it is null. Is the vie visible?"
@@ -29,15 +28,6 @@ class CrimeListFragment : Fragment() {
     // --- create a reference to the viewModel
     private val crimeListViewModel: CrimeViewModel by viewModels()
 /***************************************************************************************************
-* Initialize the [CrimeListFragment].
- * * Overrides [Fragment.onCreate].
- **************************************************************************************************/
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        // --- log the number of crimes when the fragment is created
-        Log.d(TAG, "Total crimes: ${crimeListViewModel.crimes.size}")
-    }
-/***************************************************************************************************
  * Inflate the view used with the [CrimeListFragment].
  * * Overrides [Fragment.onCreateView]
  **************************************************************************************************/
@@ -45,9 +35,9 @@ class CrimeListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // --- inflate the fragment's layout
-        _binding = Ch11LayoutChallenge15FragmentCrimeListBinding.inflate(
+        _binding = Ch12LayoutFragmentCrimeListBinding.inflate(
             inflater,
             container,
             false
@@ -56,13 +46,22 @@ class CrimeListFragment : Fragment() {
         // --- assign a layout manager to the RecyclerView
         binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
 
-        // --- assign the adapter to the recycler view
-        val crimes = crimeListViewModel.crimes
-        val adapter = CrimeListAdapter(crimes)
-        binding.crimeRecyclerView.adapter = adapter
-
         // --- return the root view that is displayed
         return binding.root
+    }
+/***************************************************************************************************
+ * Hook up listeners / set data within views.
+ * * Overrides [Fragment.onViewCreated]
+ **************************************************************************************************/
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // --- use a coroutine to load data from the view model and update the recycler view
+        viewLifecycleOwner.lifecycleScope.launch{
+            val crimes = crimeListViewModel.loadCrimes()
+            Log.d("CrimeListFragment", "Number of crimes = " + crimes.size.toString())
+            binding.crimeRecyclerView.adapter = CrimeListAdapter(crimes)
+        }
     }
 /***************************************************************************************************
  * Null the reference to the viewBinding when the fragment is destroyed to free unused memory.
