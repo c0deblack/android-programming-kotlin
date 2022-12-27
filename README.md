@@ -18,6 +18,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
  9) [Fragments](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-9-fragments)
 10) [Display Lists with RecyclerView](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-10-display-lists-with-recyclerview)
 11) [Create User Interfaces with Layouts and Views](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-11-creating-user-interfaces-with-layouts-and-views)
+12) [Coroutines and Databases](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-12-coroutines-and-databases)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
@@ -505,18 +506,18 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 - [Room Database Overview](https://developer.android.com/training/data-storage/room?hl=en)
     - [dependencies](https://developer.android.com/training/data-storage/room?hl=en#setup)
         - added kapt (Kotlin annotation processing tool), room-runtime, and room-ktx, and room-compiler
-- [Room DB Entity Class](https://developer.android.com/training/data-storage/room/defining-data?hl=en)    
-    - annotated the Crime model class as an entity
-- [Room Database Class](https://developer.android.com/training/data-storage/room?hl=en#database)
-    - created an abstract database class and annotated it with `@Database()`
-    - passed in `Crime::class` as an entity to the `@Database` annotation
-    - pre-populated the database using the `createFromAsset` function
-- [Room Type Converter](https://developer.android.com/training/data-storage/room?hl=en#database)
-    - converted from the `Date` type to a Long
-- [Room Data Access Object(DAO)](https://developer.android.com/training/data-storage/room/accessing-data?hl=en)
-    - created an interface that provides annotated functions that will access data in database
-    - [query methods](https://developer.android.com/training/data-storage/room/accessing-data?hl=en#query)
-        - used to create an SQLite `SELECT` statement
+    - [Room DB Entity Class](https://developer.android.com/training/data-storage/room/defining-data?hl=en)    
+        - annotated the Crime model class as an entity
+    - [Room Database Class](https://developer.android.com/training/data-storage/room?hl=en#database)
+        - created an abstract database class and annotated it with `@Database()`
+        - passed in `Crime::class` as an entity to the `@Database` annotation
+        - pre-populated the database using the `createFromAsset` function
+    - [Room Type Converter](https://developer.android.com/training/data-storage/room?hl=en#database)
+        - converted from the `Date` type to a Long
+    - [Room Data Access Object(DAO)](https://developer.android.com/training/data-storage/room/accessing-data?hl=en)
+        - created an interface that provides annotated functions that will access data in database
+        - [query methods](https://developer.android.com/training/data-storage/room/accessing-data?hl=en#query)
+            - used to create an SQLite `SELECT` statement
 - [Repository Pattern Codelab](https://kotlinlang.org/docs/classes.html#secondary-constructors)
     - used a repository as a single source of data
     - initialized the Room database in the repository
@@ -524,6 +525,13 @@ This file outlines some of the Kotlin and Android features introduced in each ch
     - exteded to create the `CriminalIntentApplication` class
         - initializes the repository when the application begins
         - provided the class name to the `android:name` attribute in the AndroidManifest top-level `<application>` section
+- [Flow Overview](https://developer.android.com/kotlin/flow)
+    - [creating a flow](https://developer.android.com/kotlin/flow#create)
+        - emitted data from a Room database using a Flow return type in the Dao class
+    - [collecting from a flow](https://developer.android.com/kotlin/flow#collect)
+        - collected emitted data to update a recyclerview adapter
+- [StateFlow Overview](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow)
+    - used to cache Flow data and also observe for updates
 
 ### Challenge #16: Addressing the Schema Warning
 

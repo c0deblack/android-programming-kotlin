@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch12LayoutFragmentCrimeListBinding
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 /***************************************************************************************************
@@ -58,9 +61,14 @@ class CrimeListFragment : Fragment() {
 
         // --- use a coroutine to load data from the view model and update the recycler view
         viewLifecycleOwner.lifecycleScope.launch{
-            val crimes = crimeListViewModel.loadCrimes()
-            Log.d("CrimeListFragment", "Number of crimes = " + crimes.size.toString())
-            binding.crimeRecyclerView.adapter = CrimeListAdapter(crimes)
+            // --- launch a coroutine without the need for manual cleanup
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // --- observe data emitted from a Kotlin Flow object
+                crimeListViewModel.crimes.collect() {
+                    // --- update the recyclerview adapter with collected data
+                    binding.crimeRecyclerView.adapter = CrimeListAdapter(it)
+               }
+           }
         }
     }
 /***************************************************************************************************

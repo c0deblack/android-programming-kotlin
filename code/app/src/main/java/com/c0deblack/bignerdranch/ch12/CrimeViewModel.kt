@@ -1,6 +1,11 @@
 package com.c0deblack.bignerdranch.ch12
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 
 /***************************************************************************************************
  * Crime View Model.
@@ -8,12 +13,19 @@ import androidx.lifecycle.ViewModel
  **************************************************************************************************/
 class CrimeViewModel : ViewModel() {
     private val crimeListRepository = CrimeRepository.get()
-    val crimes = mutableListOf<Crime>()
 
-/***************************************************************************************************
- * Load Crimes from the database in a Coroutine.
- **************************************************************************************************/
-    suspend fun loadCrimes(): List<Crime> {
-        return crimeListRepository.getCrimes()
+    // --- create a private backing mutableStateFlow property
+    private var _crimes : MutableStateFlow<List<Crime>> = MutableStateFlow(emptyList())
+    // --- create a public stateFlow property
+    val crimes : StateFlow<List<Crime>>
+        get() = _crimes.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            crimeListRepository.getCrimes().collect {
+                // --- catch database data in a mutableStateFlow
+               _crimes.value = it
+            }
+        }
     }
 }
