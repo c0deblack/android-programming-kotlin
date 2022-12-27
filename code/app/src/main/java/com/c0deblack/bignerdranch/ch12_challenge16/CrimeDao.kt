@@ -1,4 +1,4 @@
-package com.c0deblack.bignerdranch.ch12
+package com.c0deblack.bignerdranch.ch12_challenge16
 
 import androidx.room.Dao
 import androidx.room.Query

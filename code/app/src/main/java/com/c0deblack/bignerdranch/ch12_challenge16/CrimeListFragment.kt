@@ -1,7 +1,6 @@
-package com.c0deblack.bignerdranch.ch12
+package com.c0deblack.bignerdranch.ch12_challenge16
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch12LayoutFragmentCrimeListBinding
-import kotlinx.coroutines.flow.collect
+import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch12LayoutChallenge16FragmentCrimeListBinding
 import kotlinx.coroutines.launch
 
 /***************************************************************************************************
@@ -22,7 +20,7 @@ import kotlinx.coroutines.launch
 class CrimeListFragment : Fragment() {
     // --- create a nullable backing variable used for the fragment's viewBinding
     // --- also provide a non-null reference to the binding
-    private var _binding: Ch12LayoutFragmentCrimeListBinding? = null
+    private var _binding: Ch12LayoutChallenge16FragmentCrimeListBinding? = null
     private val binding
         get() = checkNotNull(_binding) {
             "Cannot access binding because it is null. Is the vie visible?"
@@ -30,6 +28,15 @@ class CrimeListFragment : Fragment() {
 
     // --- create a reference to the viewModel
     private val crimeListViewModel: CrimeViewModel by viewModels()
+/***************************************************************************************************
+ * Initialize the repository.
+ * * Overrides [Fragment.onCreate]
+ **************************************************************************************************/
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // --- pass the application context to the CrimeRepository to initialize it
+        context?.let { CrimeRepository.initialize(it.applicationContext) }
+    }
 /***************************************************************************************************
  * Inflate the view used with the [CrimeListFragment].
  * * Overrides [Fragment.onCreateView]
@@ -40,7 +47,7 @@ class CrimeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // --- inflate the fragment's layout
-        _binding = Ch12LayoutFragmentCrimeListBinding.inflate(
+        _binding = Ch12LayoutChallenge16FragmentCrimeListBinding.inflate(
             inflater,
             container,
             false
