@@ -535,3 +535,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 ### Challenge #16: Addressing the Schema Warning
 
+- [Export Schema](https://developer.android.com/training/data-storage/room/migrating-db-versions#export-schemas)
+- [Room Annotation Processor Options](https://developer.android.com/jetpack/androidx/releases/room#compiler-options)
+    - set `room.schemaLocation` to export the schema
+
