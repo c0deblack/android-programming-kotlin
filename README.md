@@ -19,7 +19,7 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 10) [Display Lists with RecyclerView](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-10-display-lists-with-recyclerview)
 11) [Create User Interfaces with Layouts and Views](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-11-creating-user-interfaces-with-layouts-and-views)
 12) [Coroutines and Databases](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-12-coroutines-and-databases)
-13) [Fragnent Navigation]()
+13) [Fragnent Navigation](https://github.com/c0deblack/android-programming-kotlin/tree/development#chapter-13-fragment-navigation)
 
 ![Android Programming: Big Nerd Ranch Guide (5th Edition)](https://bignerdranch.com/wp-content/uploads/2021/10/BNR_Android_5E_comp-copy-scaled.jpg)
 
@@ -545,7 +545,17 @@ This file outlines some of the Kotlin and Android features introduced in each ch
 
 ### Kotlin
 
+- [Lambda Functions](https://kotlinlang.org/docs/lambdas.html#higher-order-functions)
+    - [trailing lambdas](https://kotlinlang.org/docs/lambdas.html#passing-trailing-lambdas)
+        - used to pass a labmda to the `CrimeListAdapter` which gets passed to the `CrimeHolder`
+
 ### Android
+
+- [Navigation Overview](https://developer.android.com/guide/navigation)
+- [Navigation Getting Started](https://developer.android.com/guide/navigation/navigation-getting-started#kts)
+    - added dependencies for `navigation-fragment-ktx` and `navigation-ui-ktx`
+- [Navigation Graph Design](https://developer.android.com/guide/navigation/navigation-design-graph)
+    - [create destinations](https://developer.android.com/guide/navigation/navigation-create-destinations)
 
 ### Challenge #17: No Untitled Crimes
 

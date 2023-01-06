@@ -34,7 +34,8 @@ abstract class BaseHolder (
  * @param binding a viewBinding for the item view used in the RecyclerView.
  **************************************************************************************************/
 class CrimeHolder(
-    val binding: Ch12LayoutChallenge16ListItemCrimeBinding
+    val binding: Ch12LayoutChallenge16ListItemCrimeBinding,
+    private val onCrimeClicked: () -> Unit
 ) : BaseHolder(binding) {
 /***************************************************************************************************
  * Bind crime data to the item view used in the [RecyclerView].
@@ -48,11 +49,7 @@ class CrimeHolder(
 
             // --- set onClick event if an item in the list is clicked
             root.setOnClickListener {
-                Snackbar.make(
-                    binding.root,
-                    "${crime.title} clicked!",
-                    Snackbar.LENGTH_SHORT
-                ).show()
+                onCrimeClicked();
             }
 
             // --- show the handcuff image if the crime is solved
@@ -68,7 +65,8 @@ class CrimeHolder(
  * Contains the view used for the crimes that require police.
  **************************************************************************************************/
 class PoliceViewHolder (
-    val binding: Ch12LayoutChallenge16ListItemPoliceBinding
+    val binding: Ch12LayoutChallenge16ListItemPoliceBinding,
+    private val onCrimeClicked: () -> Unit
 ) : BaseHolder(binding) {
 /***************************************************************************************************
  * Bind crime data to the item view used in the [RecyclerView].
@@ -82,11 +80,7 @@ class PoliceViewHolder (
 
             // --- set onClick event if an item in the list is clicked
             contactPolice.setOnClickListener {
-                Snackbar.make(
-                    binding.root,
-                    "Contact Police",
-                    Snackbar.LENGTH_SHORT
-                ).show()
+                onCrimeClicked();
             }
         }
     }
@@ -96,7 +90,8 @@ class PoliceViewHolder (
  * * Extends [RecyclerView.Adapter]
  **************************************************************************************************/
 class CrimeListAdapter (
-    private val crimes : List<Crime>
+    private val crimes : List<Crime>,
+    private val onCrimeClicked: () -> Unit
 ): RecyclerView.Adapter<BaseHolder>() {
 /***************************************************************************************************
  * Create an instance of and return the viewHolder used to encapsulate each item in the
@@ -113,10 +108,10 @@ class CrimeListAdapter (
 
         return if (viewType == requiresPoliceViewType) {
             val binding = Ch12LayoutChallenge16ListItemPoliceBinding.inflate(inflater, parent, false)
-            PoliceViewHolder(binding)
+            PoliceViewHolder(binding, onCrimeClicked)
         } else {
             val binding = Ch12LayoutChallenge16ListItemCrimeBinding.inflate(inflater, parent, false)
-            CrimeHolder(binding)
+            CrimeHolder(binding, onCrimeClicked)
         }
     }
 /***************************************************************************************************

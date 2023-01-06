@@ -9,7 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.c0deblack.bignerdranch.androidprogramming.R
 import com.c0deblack.bignerdranch.androidprogramming.databinding.Ch13LayoutFragmentCrimeListBinding
 import kotlinx.coroutines.launch
 
@@ -73,7 +75,11 @@ class CrimeListFragment : Fragment() {
                 // --- observe data emitted from a Kotlin Flow object
                 crimeListViewModel.crimes.collect() {
                     // --- update the recyclerview adapter with collected data
-                    binding.crimeRecyclerView.adapter = CrimeListAdapter(it)
+                    binding.crimeRecyclerView.adapter = CrimeListAdapter(it) {
+                        findNavController().navigate(
+                            R.id.show_crime_detail
+                        )
+                    }
                }
            }
         }
